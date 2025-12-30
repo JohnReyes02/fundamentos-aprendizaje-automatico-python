@@ -107,6 +107,59 @@ Puedes ver cómo scikit-learn permite hacer predicciones ¡con solo unas pocas l
 
 ## El reto de la clasificación
 
+-   Clasificar etiquetas de datos no vistos
+
+1.  Se construye un modelo.
+
+2.  El modelo aprende de los datos etiquetados que le pasamos.
+
+3.  Le pasamos datos no etiquetados al modelo como entrada.
+
+4.  El modelo predice las etiquetas de los datos no vistos.
+
+    -   Datos etiquetados = datos de entrenamiento
+
+-   K vecinos más cercanos (KNN)
+    -   Predecir la etiqueta de un punto de datos:
+        -   Observando los `k` puntos de datos etiquetados más cercanos.
+        -   Utilizando el voto por mayoría.
+
+|                           |                           |
+|---------------------------|---------------------------|
+| si k = 3                  | si k = 5                  |
+| ![](images/paste-7.png)   | ![](images/paste-9.png)   |
+| Se clasificaría como roja | Se clasificaría como azul |
+
+-   Intuición KNN
+
+    Se muestra un gráfico de dispersión que muestra la tarifa nocturna total frente a la tarifa diaria total de los clientes de una empresa de telecomunicaciones. Azul representa a los clientes que se han dado de baja y los de rojo a los que no.
+
+    |                          |                          |
+    |--------------------------|--------------------------|
+    | ![](images/paste-10.png) | ![](images/paste-11.png) |
+
+    KNN crea un límite de decisión para predecir si los clientes se darán de baja. Se prevee que los clientes en la franja con fondo gris, se darán de baja.
+
+-   Utilizar scikit-learn para ajustar un clasificador
+
+    ```{python}
+    #| echo: true
+    #| eval: false
+    from sklearn.neighbors import KNeighborsClassifier
+    X = churn_df[["total_day_charge", "total_eve_charge"]].values
+    y = churn_df["churn"].values
+    print(X.shape, y.shape)
+    ```
+
+    ![](images/paste-13.png)
+
+    ```{python}
+    #| echo: true
+    #| eval: false
+    knn = KNeighborsClassifier(n_neighbors=15)
+    knn.fit(X, y)
+    ```
+
 ### Ajustar KNN: k vecinos más cercanos
 
 ### Predecir KNN: k vecinos más cercanos

@@ -2,7 +2,7 @@
  "cells": [
   {
    "cell_type": "markdown",
-   "id": "8777d6ac",
+   "id": "0ae75c0b",
    "metadata": {},
    "source": [
     "# Clasificación\n",
@@ -68,7 +68,7 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "b7865893",
+   "id": "30fd590f",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -83,7 +83,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "e39e5fac",
+   "id": "9438509b",
    "metadata": {},
    "source": [
     "![](images/paste-3.png)\n",
@@ -126,6 +126,87 @@
     "\n",
     "## El reto de la clasificación\n",
     "\n",
+    "-   Clasificar etiquetas de datos no vistos\n",
+    "\n",
+    "1.  Se construye un modelo.\n",
+    "\n",
+    "2.  El modelo aprende de los datos etiquetados que le pasamos.\n",
+    "\n",
+    "3.  Le pasamos datos no etiquetados al modelo como entrada.\n",
+    "\n",
+    "4.  El modelo predice las etiquetas de los datos no vistos.\n",
+    "\n",
+    "    -   Datos etiquetados = datos de entrenamiento\n",
+    "\n",
+    "-   K vecinos más cercanos (KNN)\n",
+    "    -   Predecir la etiqueta de un punto de datos:\n",
+    "        -   Observando los `k` puntos de datos etiquetados más cercanos.\n",
+    "        -   Utilizando el voto por mayoría.\n",
+    "\n",
+    "|                           |                           |\n",
+    "|---------------------------|---------------------------|\n",
+    "| si k = 3                  | si k = 5                  |\n",
+    "| ![](images/paste-7.png)   | ![](images/paste-9.png)   |\n",
+    "| Se clasificaría como roja | Se clasificaría como azul |\n",
+    "\n",
+    "-   Intuición KNN\n",
+    "\n",
+    "    Se muestra un gráfico de dispersión que muestra la tarifa nocturna total frente a la tarifa diaria total de los clientes de una empresa de telecomunicaciones. Azul representa a los clientes que se han dado de baja y los de rojo a los que no.\n",
+    "\n",
+    "    |                          |                          |\n",
+    "    |--------------------------|--------------------------|\n",
+    "    | ![](images/paste-10.png) | ![](images/paste-11.png) |\n",
+    "\n",
+    "    KNN crea un límite de decisión para predecir si los clientes se darán de baja. Se prevee que los clientes en la franja con fondo gris, se darán de baja.\n",
+    "\n",
+    "-   Utilizar scikit-learn para ajustar un clasificador"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "75af5ed6",
+   "metadata": {
+    "md-indent": "    "
+   },
+   "outputs": [],
+   "source": [
+    "#| echo: true\n",
+    "#| eval: false\n",
+    "from sklearn.neighbors import KNeighborsClassifier\n",
+    "X = churn_df[[\"total_day_charge\", \"total_eve_charge\"]].values\n",
+    "y = churn_df[\"churn\"].values\n",
+    "print(X.shape, y.shape)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "3ce96de3",
+   "metadata": {},
+   "source": [
+    "    ![](images/paste-13.png)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "0160f69e",
+   "metadata": {
+    "md-indent": "    "
+   },
+   "outputs": [],
+   "source": [
+    "#| echo: true\n",
+    "#| eval: false\n",
+    "knn = KNeighborsClassifier(n_neighbors=15)\n",
+    "knn.fit(X, y)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "98e6c7d9",
+   "metadata": {},
+   "source": [
     "### Ajustar KNN: k vecinos más cercanos\n",
     "\n",
     "### Predecir KNN: k vecinos más cercanos\n",

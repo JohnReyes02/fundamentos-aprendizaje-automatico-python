@@ -549,7 +549,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Scikit-learn sigue la misma sintaxis para todos los modelos de aprendizaje supervisado lo que hace que el flujo de trabajo sea reproducible.</li>
 </ul></li>
 </ul>
-<div id="b7865893" class="cell" data-execution_count="1">
+<div id="30fd590f" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.module <span class="im">import</span> Model</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> Model()</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>model.fit(X, y)</span>
@@ -588,6 +588,69 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="el-reto-de-la-clasificación" class="level2">
 <h2 class="anchored" data-anchor-id="el-reto-de-la-clasificación">El reto de la clasificación</h2>
+<ul>
+<li>Clasificar etiquetas de datos no vistos</li>
+</ul>
+<ol type="1">
+<li><p>Se construye un modelo.</p></li>
+<li><p>El modelo aprende de los datos etiquetados que le pasamos.</p></li>
+<li><p>Le pasamos datos no etiquetados al modelo como entrada.</p></li>
+<li><p>El modelo predice las etiquetas de los datos no vistos.</p>
+<ul>
+<li>Datos etiquetados = datos de entrenamiento</li>
+</ul></li>
+</ol>
+<ul>
+<li>K vecinos más cercanos (KNN)
+<ul>
+<li>Predecir la etiqueta de un punto de datos:
+<ul>
+<li>Observando los <code>k</code> puntos de datos etiquetados más cercanos.</li>
+<li>Utilizando el voto por mayoría.</li>
+</ul></li>
+</ul></li>
+</ul>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td>si k = 3</td>
+<td>si k = 5</td>
+</tr>
+<tr class="even">
+<td><img src="images/paste-7.png" class="img-fluid"></td>
+<td><img src="images/paste-9.png" class="img-fluid"></td>
+</tr>
+<tr class="odd">
+<td>Se clasificaría como roja</td>
+<td>Se clasificaría como azul</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>Intuición KNN</p>
+<p>Se muestra un gráfico de dispersión que muestra la tarifa nocturna total frente a la tarifa diaria total de los clientes de una empresa de telecomunicaciones. Azul representa a los clientes que se han dado de baja y los de rojo a los que no.</p>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td><img src="images/paste-10.png" class="img-fluid"></td>
+<td><img src="images/paste-11.png" class="img-fluid"></td>
+</tr>
+</tbody>
+</table>
+<p>KNN crea un límite de decisión para predecir si los clientes se darán de baja. Se prevee que los clientes en la franja con fondo gris, se darán de baja.</p></li>
+<li><p>Utilizar scikit-learn para ajustar un clasificador</p>
+<div id="75af5ed6" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.neighbors <span class="im">import</span> KNeighborsClassifier</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> churn_df[[<span class="st">"total_day_charge"</span>, <span class="st">"total_eve_charge"</span>]].values</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> churn_df[<span class="st">"churn"</span>].values</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(X.shape, y.shape)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><img src="images/paste-13.png" class="img-fluid"></p>
+<div id="0160f69e" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>knn <span class="op">=</span> KNeighborsClassifier(n_neighbors<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>knn.fit(X, y)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+</ul>
 <section id="ajustar-knn-k-vecinos-más-cercanos" class="level3">
 <h3 class="anchored" data-anchor-id="ajustar-knn-k-vecinos-más-cercanos">Ajustar KNN: k vecinos más cercanos</h3>
 </section>
