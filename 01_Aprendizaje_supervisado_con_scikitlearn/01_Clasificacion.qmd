@@ -4,31 +4,112 @@ En este capítulo, se te presentarán los problemas de clasifiación y aprender�
 
 ## Machine learning con scikit-learn
 
-- ¿Qué es el machine learning?
-    - Es el proceso mediante el cual:
-        - Se da a los ordenadores la capacidad de aprender a tomar decisiones a partir de datos.
-        - ¡Sin haber sido programados explícitamente!
+-   ¿Qué es el machine learning?
 
-- Ejemplos de machine learning
-    - Clasificación de correos de spam o no en relación al contenido y su remitente.
-    - Agrupar libros por categorías en función de las palabras que contiene.
+    -   Es el proceso mediante el cual:
+        -   Se da a los ordenadores la capacidad de aprender a tomar decisiones a partir de datos.
+        -   ¡Sin haber sido programados explícitamente!
 
-- Aprendizaje no supervisado
-    - Descubrir patrones ocultos a partir de datos no etiquetados.
-    - Ejemplo
-        - Agrupar a los clientes en categorías distintas (agrupación en clústeres)
+-   Ejemplos de machine learning
+
+    -   Clasificación de correos de spam o no en relación al contenido y su remitente.
+    -   Agrupar libros por categorías en función de las palabras que contiene.
+
+-   Aprendizaje no supervisado
+
+    -   Descubrir patrones ocultos a partir de datos no etiquetados.
+    -   Ejemplo
+        -   Agrupar a los clientes en categorías distintas (agrupación en clústeres)
+
+            ![](images/paste-1.png){width="83%"}
+
+-   Aprendizaje supervisado
+
+    -   Los valores previstos son conocidos.
+
+    -   Objetivo: predecir los valores objetivo de los datos no vistos, dadas las características.
+
+        ![](images/paste-2.png){width="80%"}
+
+-   Tipos de aprendizaje supervisado
+
+    +--------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
+    | -   Clasificación: La variable objetivo consta de categorías.            | -   Regresión: La variable objetivo es continua.                                                                                                           |
+    |                                                                          |                                                                                                                                                            |
+    |     Ejemplo: Predecir si una transferencia bancaria es fraudulenta o no. |     Ejemplo: Un modelo puede utilizar características como el número de habitaciones y el tamaño de una propiedad para predecir el precio de la propiedad. |
+    +--------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+-   Convenciones de denominación
+
+    -   Característica = variable predictora = variable independiente
+
+    -   Variable objetivo = variable dependiente = variable de respuesta
+
+-   Antes de utilizar el aprendizaje supervisado
+
+    -   Requisitos:
+        -   Que no falten valores.
+        -   Que los datos esten en formato numérico.
+        -   Que los datos esten almacenados en un DataFrame de pandas o en una matriz de Numpy.
+    -   Hay que realizar primero un análisis exploratorio de datos (AED)
+
+-   Sintaxis de scikit-learn
+
+    -   Scikit-learn sigue la misma sintaxis para todos los modelos de aprendizaje supervisado lo que hace que el flujo de trabajo sea reproducible.
+
+```{python}
+#| echo: true
+#| eval: false
+from sklearn.module import Model
+model = Model()
+model.fit(X, y)
+predictions = model.predict(X_new)
+print(predictions)
+```
+
+![](images/paste-3.png)
 
 ### Clasificación binaria
 
+Hay dos tipos de aprendizaje supervisado: clasificación y regresión. La clasificación binaria se utiliza para predecir una variable objetivo que solo tiene dos etiquetas, normalmente representados numéricamente con un cero o un uno.
+
+A continuación se muestra la página `.head()` de un conjunto de datos `churn_df`. Puedes esperar que el resto de los datos contengan valores similares.
+
+![](images/paste-4.png)
+
+Observando estos datos, ¿Qué columna podría ser la variable objetivo de la clasificación binaria?
+
+**Respuestas posibles**
+
+-   [ ] "`customer_service_calls`"
+
+-   [ ] "`total_night_charge`"
+
+-   [x] "`churn`"
+
+-   [ ] "`account_lenght`"
+
+`churn` tiene valores de `0` y `1`, por lo que se puede predecir utilizando un modelo de clasificación binaria.
+
 ### El flujo de trabajo del aprendizaje supervisado
 
+Recuerda que sckikit-learn ofrece un flujo de trabajo repetible para utilizar modelos de aprendizaje supervisado con el fin de predecir los valores de la variable objetivo cuando se presentan nuevos datos.
+
+Reordena el pseudocódigo proporcionado para que represente con precisión el flujo de trabajo de construir un modelo de aprendizaje supervisado y hacer predicciones.
+
+#### Instrucciones
+
+-   Arrastra los bloques de código en el orden correcto para representar cómo se ejecutaría el flujo de trabajo de aprendizaje supervisado.
+
+    ![](images/paste-5.png){width="80%"}
+
+Puedes ver cómo scikit-learn permite hacer predicciones ¡con solo unas pocas líneas de código!
 
 ## El reto de la clasificación
 
 ### Ajustar KNN: k vecinos más cercanos
 
 ### Predecir KNN: k vecinos más cercanos
-
 
 ## Medir el rendimiento del modelo
 
