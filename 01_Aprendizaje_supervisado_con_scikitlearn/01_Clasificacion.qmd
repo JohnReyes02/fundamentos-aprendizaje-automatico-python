@@ -1,0 +1,39 @@
+# Clasificación
+
+En este capítulo, se te presentarán los problemas de clasifiación y aprenderás a resolverlos mediante técnicas de aprendizaje supervisado. Aprenderás a dividir los datos en conjuntos de entrenamiento y de prueba, ajustar un modelo, hacer predicciones y evaluar la precisión. Descubrirás la relación entre la complejidad del modelo y el rendimiento, aplicando lo que aprendas a un conjunto de datos de rotación, donde clasificarás el estado de rotación de los clientes de una empresa de telecomunicaciones.
+
+## Machine learning con scikit-learn
+
+- ¿Qué es el machine learning?
+    - Es el proceso mediante el cual:
+        - Se da a los ordenadores la capacidad de aprender a tomar decisiones a partir de datos.
+        - ¡Sin haber sido programados explícitamente!
+
+- Ejemplos de machine learning
+    - Clasificación de correos de spam o no en relación al contenido y su remitente.
+    - Agrupar libros por categorías en función de las palabras que contiene.
+
+- Aprendizaje no supervisado
+    - Descubrir patrones ocultos a partir de datos no etiquetados.
+    - Ejemplo
+        - Agrupar a los clientes en categorías distintas (agrupación en clústeres)
+
+### Clasificación binaria
+
+### El flujo de trabajo del aprendizaje supervisado
+
+
+## El reto de la clasificación
+
+### Ajustar KNN: k vecinos más cercanos
+
+### Predecir KNN: k vecinos más cercanos
+
+
+## Medir el rendimiento del modelo
+
+### División entrenamiento/prueba + cálculo de precisión
+
+### Sobreajuste e infraajuste
+
+### Visualizar la complejidad del modelo

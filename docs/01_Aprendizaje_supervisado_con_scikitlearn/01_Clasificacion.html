@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>index – Fundamentos del aprendizaje automático en python</title>
+<title>Clasificación – Fundamentos del aprendizaje automático en python</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../03_Introduccion_al_aprendizaje_profundo_con_pytorch/index.html" rel="next">
+<link href="../01_Aprendizaje_supervisado_con_scikitlearn/02_Regresion.html" rel="next">
 <link href="../01_Aprendizaje_supervisado_con_scikitlearn/index.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -248,7 +248,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../02_Aprendizaje_no_supervisado_en_python/index.html">Aprendizaje no supervisado en Python</a></li><li class="breadcrumb-item"><a href="../02_Aprendizaje_no_supervisado_en_python/index.html"><span class="chapter-title">index.html</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../01_Aprendizaje_supervisado_con_scikitlearn/index.html">Aprendizaje supervisado con scikit-learn</a></li><li class="breadcrumb-item"><a href="../01_Aprendizaje_supervisado_con_scikitlearn/01_Clasificacion.html"><span class="chapter-title">Clasificación</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -308,33 +308,53 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Aprendizaje supervisado con scikit-learn</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../01_Aprendizaje_supervisado_con_scikitlearn/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Bienvenida</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../01_Aprendizaje_supervisado_con_scikitlearn/01_Clasificacion.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Clasificación</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../01_Aprendizaje_supervisado_con_scikitlearn/02_Regresion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Regresión</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../01_Aprendizaje_supervisado_con_scikitlearn/03_Afinar_tu_modelo.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Afinar tu modelo</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../01_Aprendizaje_supervisado_con_scikitlearn/04_Preprocesamiento_y_canalizaciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preprocesamiento y canalizaciones</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
  <span class="menu-text">Aprendizaje no supervisado en Python</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../02_Aprendizaje_no_supervisado_en_python/index.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">index.html</span></a>
+  <a href="../02_Aprendizaje_no_supervisado_en_python/index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">index.html</span></a>
   </div>
 </li>
       </ul>
@@ -376,18 +396,109 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contenido</h2>
+   
+  <ul>
+  <li><a href="#machine-learning-con-scikit-learn" id="toc-machine-learning-con-scikit-learn" class="nav-link active" data-scroll-target="#machine-learning-con-scikit-learn">Machine learning con scikit-learn</a>
+  <ul class="collapse">
+  <li><a href="#clasificación-binaria" id="toc-clasificación-binaria" class="nav-link" data-scroll-target="#clasificación-binaria">Clasificación binaria</a></li>
+  <li><a href="#el-flujo-de-trabajo-del-aprendizaje-supervisado" id="toc-el-flujo-de-trabajo-del-aprendizaje-supervisado" class="nav-link" data-scroll-target="#el-flujo-de-trabajo-del-aprendizaje-supervisado">El flujo de trabajo del aprendizaje supervisado</a></li>
+  </ul></li>
+  <li><a href="#el-reto-de-la-clasificación" id="toc-el-reto-de-la-clasificación" class="nav-link" data-scroll-target="#el-reto-de-la-clasificación">El reto de la clasificación</a>
+  <ul class="collapse">
+  <li><a href="#ajustar-knn-k-vecinos-más-cercanos" id="toc-ajustar-knn-k-vecinos-más-cercanos" class="nav-link" data-scroll-target="#ajustar-knn-k-vecinos-más-cercanos">Ajustar KNN: k vecinos más cercanos</a></li>
+  <li><a href="#predecir-knn-k-vecinos-más-cercanos" id="toc-predecir-knn-k-vecinos-más-cercanos" class="nav-link" data-scroll-target="#predecir-knn-k-vecinos-más-cercanos">Predecir KNN: k vecinos más cercanos</a></li>
+  </ul></li>
+  <li><a href="#medir-el-rendimiento-del-modelo" id="toc-medir-el-rendimiento-del-modelo" class="nav-link" data-scroll-target="#medir-el-rendimiento-del-modelo">Medir el rendimiento del modelo</a>
+  <ul class="collapse">
+  <li><a href="#división-entrenamientoprueba-cálculo-de-precisión" id="toc-división-entrenamientoprueba-cálculo-de-precisión" class="nav-link" data-scroll-target="#división-entrenamientoprueba-cálculo-de-precisión">División entrenamiento/prueba + cálculo de precisión</a></li>
+  <li><a href="#sobreajuste-e-infraajuste" id="toc-sobreajuste-e-infraajuste" class="nav-link" data-scroll-target="#sobreajuste-e-infraajuste">Sobreajuste e infraajuste</a></li>
+  <li><a href="#visualizar-la-complejidad-del-modelo" id="toc-visualizar-la-complejidad-del-modelo" class="nav-link" data-scroll-target="#visualizar-la-complejidad-del-modelo">Visualizar la complejidad del modelo</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/JohnReyes02/fundamentos-aprendizaje-automatico-python/edit/main/01_Aprendizaje_supervisado_con_scikitlearn/01_Clasificacion.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/JohnReyes02/fundamentos-aprendizaje-automatico-python/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li><li><a href="https://github.com/JohnReyes02/fundamentos-aprendizaje-automatico-python/blob/main/01_Aprendizaje_supervisado_con_scikitlearn/01_Clasificacion.qmd" class="toc-action"><i class="bi empty"></i>Ver el código</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../02_Aprendizaje_no_supervisado_en_python/index.html">Aprendizaje no supervisado en Python</a></li><li class="breadcrumb-item"><a href="../02_Aprendizaje_no_supervisado_en_python/index.html"><span class="chapter-title">index.html</span></a></li></ol></nav></header>
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../01_Aprendizaje_supervisado_con_scikitlearn/index.html">Aprendizaje supervisado con scikit-learn</a></li><li class="breadcrumb-item"><a href="../01_Aprendizaje_supervisado_con_scikitlearn/01_Clasificacion.html"><span class="chapter-title">Clasificación</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">Clasificación</span></h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
+</header>
 
 
+<p>En este capítulo, se te presentarán los problemas de clasifiación y aprenderás a resolverlos mediante técnicas de aprendizaje supervisado. Aprenderás a dividir los datos en conjuntos de entrenamiento y de prueba, ajustar un modelo, hacer predicciones y evaluar la precisión. Descubrirás la relación entre la complejidad del modelo y el rendimiento, aplicando lo que aprendas a un conjunto de datos de rotación, donde clasificarás el estado de rotación de los clientes de una empresa de telecomunicaciones.</p>
+<section id="machine-learning-con-scikit-learn" class="level2">
+<h2 class="anchored" data-anchor-id="machine-learning-con-scikit-learn">Machine learning con scikit-learn</h2>
+<ul>
+<li>¿Qué es el machine learning?
+<ul>
+<li>Es el proceso mediante el cual:
+<ul>
+<li>Se da a los ordenadores la capacidad de aprender a tomar decisiones a partir de datos.</li>
+<li>¡Sin haber sido programados explícitamente!</li>
+</ul></li>
+</ul></li>
+<li>Ejemplos de machine learning
+<ul>
+<li>Clasificación de correos de spam o no en relación al contenido y su remitente.</li>
+<li>Agrupar libros por categorías en función de las palabras que contiene.</li>
+</ul></li>
+<li>Aprendizaje no supervisado
+<ul>
+<li>Descubrir patrones ocultos a partir de datos no etiquetados.</li>
+<li>Ejemplo
+<ul>
+<li>Agrupar a los clientes en categorías distintas (agrupación en clústeres)</li>
+</ul></li>
+</ul></li>
+</ul>
+<section id="clasificación-binaria" class="level3">
+<h3 class="anchored" data-anchor-id="clasificación-binaria">Clasificación binaria</h3>
+</section>
+<section id="el-flujo-de-trabajo-del-aprendizaje-supervisado" class="level3">
+<h3 class="anchored" data-anchor-id="el-flujo-de-trabajo-del-aprendizaje-supervisado">El flujo de trabajo del aprendizaje supervisado</h3>
+</section>
+</section>
+<section id="el-reto-de-la-clasificación" class="level2">
+<h2 class="anchored" data-anchor-id="el-reto-de-la-clasificación">El reto de la clasificación</h2>
+<section id="ajustar-knn-k-vecinos-más-cercanos" class="level3">
+<h3 class="anchored" data-anchor-id="ajustar-knn-k-vecinos-más-cercanos">Ajustar KNN: k vecinos más cercanos</h3>
+</section>
+<section id="predecir-knn-k-vecinos-más-cercanos" class="level3">
+<h3 class="anchored" data-anchor-id="predecir-knn-k-vecinos-más-cercanos">Predecir KNN: k vecinos más cercanos</h3>
+</section>
+</section>
+<section id="medir-el-rendimiento-del-modelo" class="level2">
+<h2 class="anchored" data-anchor-id="medir-el-rendimiento-del-modelo">Medir el rendimiento del modelo</h2>
+<section id="división-entrenamientoprueba-cálculo-de-precisión" class="level3">
+<h3 class="anchored" data-anchor-id="división-entrenamientoprueba-cálculo-de-precisión">División entrenamiento/prueba + cálculo de precisión</h3>
+</section>
+<section id="sobreajuste-e-infraajuste" class="level3">
+<h3 class="anchored" data-anchor-id="sobreajuste-e-infraajuste">Sobreajuste e infraajuste</h3>
+</section>
+<section id="visualizar-la-complejidad-del-modelo" class="level3">
+<h3 class="anchored" data-anchor-id="visualizar-la-complejidad-del-modelo">Visualizar la complejidad del modelo</h3>
+
+
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -809,8 +920,8 @@ ul.task-list li input[type="checkbox"] {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../03_Introduccion_al_aprendizaje_profundo_con_pytorch/index.html" class="pagination-link" aria-label="index.html">
-        <span class="nav-page-text"><span class="chapter-title">index.html</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../01_Aprendizaje_supervisado_con_scikitlearn/02_Regresion.html" class="pagination-link" aria-label="Regresión">
+        <span class="nav-page-text"><span class="chapter-title">Regresión</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -819,4 +930,4 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/JohnReyes02/fundamentos-aprendizaje-automatico-python/edit/main/02_Aprendizaje_no_supervisado_en_python/index.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/JohnReyes02/fundamentos-aprendizaje-automatico-python/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li><li><a href="https://github.com/JohnReyes02/fundamentos-aprendizaje-automatico-python/blob/main/02_Aprendizaje_no_supervisado_en_python/index.qmd" class="toc-action"><i class="bi empty"></i>Ver el código</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/JohnReyes02/fundamentos-aprendizaje-automatico-python/edit/main/01_Aprendizaje_supervisado_con_scikitlearn/01_Clasificacion.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/JohnReyes02/fundamentos-aprendizaje-automatico-python/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li><li><a href="https://github.com/JohnReyes02/fundamentos-aprendizaje-automatico-python/blob/main/01_Aprendizaje_supervisado_con_scikitlearn/01_Clasificacion.qmd" class="toc-action"><i class="bi empty"></i>Ver el código</a></li></ul></div></div></div></footer></body></html>

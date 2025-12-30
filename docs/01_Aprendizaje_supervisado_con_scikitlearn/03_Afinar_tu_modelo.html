@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>index – Fundamentos del aprendizaje automático en python</title>
+<title>Afinar tu modelo – Fundamentos del aprendizaje automático en python</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../03_Introduccion_al_aprendizaje_profundo_con_pytorch/index.html" rel="next">
-<link href="../01_Aprendizaje_supervisado_con_scikitlearn/index.html" rel="prev">
+<link href="../01_Aprendizaje_supervisado_con_scikitlearn/04_Preprocesamiento_y_canalizaciones.html" rel="next">
+<link href="../01_Aprendizaje_supervisado_con_scikitlearn/02_Regresion.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -248,7 +248,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../02_Aprendizaje_no_supervisado_en_python/index.html">Aprendizaje no supervisado en Python</a></li><li class="breadcrumb-item"><a href="../02_Aprendizaje_no_supervisado_en_python/index.html"><span class="chapter-title">index.html</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../01_Aprendizaje_supervisado_con_scikitlearn/index.html">Aprendizaje supervisado con scikit-learn</a></li><li class="breadcrumb-item"><a href="../01_Aprendizaje_supervisado_con_scikitlearn/03_Afinar_tu_modelo.html"><span class="chapter-title">Afinar tu modelo</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -308,33 +308,53 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Aprendizaje supervisado con scikit-learn</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../01_Aprendizaje_supervisado_con_scikitlearn/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Bienvenida</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../01_Aprendizaje_supervisado_con_scikitlearn/01_Clasificacion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clasificación</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../01_Aprendizaje_supervisado_con_scikitlearn/02_Regresion.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Regresión</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../01_Aprendizaje_supervisado_con_scikitlearn/03_Afinar_tu_modelo.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Afinar tu modelo</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../01_Aprendizaje_supervisado_con_scikitlearn/04_Preprocesamiento_y_canalizaciones.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Preprocesamiento y canalizaciones</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
  <span class="menu-text">Aprendizaje no supervisado en Python</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../02_Aprendizaje_no_supervisado_en_python/index.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">index.html</span></a>
+  <a href="../02_Aprendizaje_no_supervisado_en_python/index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">index.html</span></a>
   </div>
 </li>
       </ul>
@@ -380,10 +400,26 @@ ul.task-list li input[type="checkbox"] {
         
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../02_Aprendizaje_no_supervisado_en_python/index.html">Aprendizaje no supervisado en Python</a></li><li class="breadcrumb-item"><a href="../02_Aprendizaje_no_supervisado_en_python/index.html"><span class="chapter-title">index.html</span></a></li></ol></nav></header>
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../01_Aprendizaje_supervisado_con_scikitlearn/index.html">Aprendizaje supervisado con scikit-learn</a></li><li class="breadcrumb-item"><a href="../01_Aprendizaje_supervisado_con_scikitlearn/03_Afinar_tu_modelo.html"><span class="chapter-title">Afinar tu modelo</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-title">Afinar tu modelo</span></h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
 
 
 
@@ -804,13 +840,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../01_Aprendizaje_supervisado_con_scikitlearn/index.html" class="pagination-link" aria-label="Bienvenida">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Bienvenida</span>
+      <a href="../01_Aprendizaje_supervisado_con_scikitlearn/02_Regresion.html" class="pagination-link" aria-label="Regresión">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Regresión</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../03_Introduccion_al_aprendizaje_profundo_con_pytorch/index.html" class="pagination-link" aria-label="index.html">
-        <span class="nav-page-text"><span class="chapter-title">index.html</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../01_Aprendizaje_supervisado_con_scikitlearn/04_Preprocesamiento_y_canalizaciones.html" class="pagination-link" aria-label="Preprocesamiento y canalizaciones">
+        <span class="nav-page-text"><span class="chapter-title">Preprocesamiento y canalizaciones</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -819,4 +855,4 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/JohnReyes02/fundamentos-aprendizaje-automatico-python/edit/main/02_Aprendizaje_no_supervisado_en_python/index.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/JohnReyes02/fundamentos-aprendizaje-automatico-python/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li><li><a href="https://github.com/JohnReyes02/fundamentos-aprendizaje-automatico-python/blob/main/02_Aprendizaje_no_supervisado_en_python/index.qmd" class="toc-action"><i class="bi empty"></i>Ver el código</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/JohnReyes02/fundamentos-aprendizaje-automatico-python/edit/main/01_Aprendizaje_supervisado_con_scikitlearn/03_Afinar_tu_modelo.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/JohnReyes02/fundamentos-aprendizaje-automatico-python/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li><li><a href="https://github.com/JohnReyes02/fundamentos-aprendizaje-automatico-python/blob/main/01_Aprendizaje_supervisado_con_scikitlearn/03_Afinar_tu_modelo.qmd" class="toc-action"><i class="bi empty"></i>Ver el código</a></li></ul></div></div></div></footer></body></html>

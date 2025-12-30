@@ -30,6 +30,10 @@ book:
     - part: "Aprendizaje supervisado con scikit-learn"
       chapters: 
         - 01_Aprendizaje_supervisado_con_scikitlearn/index.qmd
+        - 01_Aprendizaje_supervisado_con_scikitlearn/01_Clasificacion.qmd
+        - 01_Aprendizaje_supervisado_con_scikitlearn/02_Regresion.qmd
+        - 01_Aprendizaje_supervisado_con_scikitlearn/03_Afinar_tu_modelo.qmd
+        - 01_Aprendizaje_supervisado_con_scikitlearn/04_Preprocesamiento_y_canalizaciones.qmd
     
     - part: "Aprendizaje no supervisado en Python"
       chapters: 

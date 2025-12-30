@@ -24,7 +24,7 @@
     "href": "01_Aprendizaje_supervisado_con_scikitlearn/index.html",
     "title": "Bienvenida",
     "section": "",
-    "text": "Descripción\n📊 Nivel: Intermedio\n🕒 Duración estimada: 4 horas\n🎥 Incluye código, visualizaciones y ejercicios",
+    "text": "Descripción\n📊 Nivel: Intermedio\n🕒 Duración estimada: 4 horas\n🎥 Incluye código, visualizaciones y ejercicios\nDesarrolla tus habilidades en machine learning con scikit-learn y descubre cómo utilizar esta popular biblioteca de Python para entrenar modelos utilizando datos etiquetados. En este curso, aprenderás a hacer predicciones potentes, como si un cliente se dará de baja de tu negocio, si una persona tiene diabetes e incluso cómo clasificar el género de una canción. Utilizando conjunto de datos del mundo real, descubrirás cómo construir modelos predictivos, ajustar sus parámetros y determinar su rendimiento con datos no vistos.",
     "crumbs": [
       "Aprendizaje supervisado con scikit-learn",
       "Bienvenida"
@@ -35,10 +35,64 @@
     "href": "01_Aprendizaje_supervisado_con_scikitlearn/index.html#módulos-del-curso",
     "title": "Bienvenida",
     "section": "Módulos del curso",
-    "text": "Módulos del curso",
+    "text": "Módulos del curso\n\nClasificación\nRegresión\nAfinar tu Modelo\nPreprocesamiento y Canalizaciones",
     "crumbs": [
       "Aprendizaje supervisado con scikit-learn",
       "Bienvenida"
+    ]
+  },
+  {
+    "objectID": "index.html#cursos-del-programa",
+    "href": "index.html#cursos-del-programa",
+    "title": "Fundamentos del aprendizaje automático en python",
+    "section": "Cursos del Programa",
+    "text": "Cursos del Programa\n\nAprendizaje supervisado con scikit-learn\nProyecto - Predictive Modeling for Agriculture\nAprendizaje no supervisado en python\nProyecto - Clustering Antartic Pinguin Species\nIntroducción al aprendizaje profundo con PyTorch\nReinforcement Learning with Gymnasium in Python\nProyecto - Taxi Route Optimization with Reinforcement Learning",
+    "crumbs": [
+      "Bienvenida"
+    ]
+  },
+  {
+    "objectID": "01_Aprendizaje_supervisado_con_scikitlearn/01_Clasificacion.html",
+    "href": "01_Aprendizaje_supervisado_con_scikitlearn/01_Clasificacion.html",
+    "title": "Clasificación",
+    "section": "",
+    "text": "Machine learning con scikit-learn\nEn este capítulo, se te presentarán los problemas de clasifiación y aprenderás a resolverlos mediante técnicas de aprendizaje supervisado. Aprenderás a dividir los datos en conjuntos de entrenamiento y de prueba, ajustar un modelo, hacer predicciones y evaluar la precisión. Descubrirás la relación entre la complejidad del modelo y el rendimiento, aplicando lo que aprendas a un conjunto de datos de rotación, donde clasificarás el estado de rotación de los clientes de una empresa de telecomunicaciones.",
+    "crumbs": [
+      "Aprendizaje supervisado con scikit-learn",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Clasificación</span>"
+    ]
+  },
+  {
+    "objectID": "01_Aprendizaje_supervisado_con_scikitlearn/01_Clasificacion.html#machine-learning-con-scikit-learn",
+    "href": "01_Aprendizaje_supervisado_con_scikitlearn/01_Clasificacion.html#machine-learning-con-scikit-learn",
+    "title": "Clasificación",
+    "section": "",
+    "text": "¿Qué es el machine learning?\n\nEs el proceso mediante el cual:\n\nSe da a los ordenadores la capacidad de aprender a tomar decisiones a partir de datos.\n¡Sin haber sido programados explícitamente!\n\n\nEjemplos de machine learning\n\nClasificación de correos de spam o no en relación al contenido y su remitente.\nAgrupar libros por categorías en función de las palabras que contiene.\n\nAprendizaje no supervisado\n\nDescubrir patrones ocultos a partir de datos no etiquetados.\nEjemplo\n\nAgrupar a los clientes en categorías distintas (agrupación en clústeres)\n\n\n\n\nClasificación binaria\n\n\nEl flujo de trabajo del aprendizaje supervisado",
+    "crumbs": [
+      "Aprendizaje supervisado con scikit-learn",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Clasificación</span>"
+    ]
+  },
+  {
+    "objectID": "01_Aprendizaje_supervisado_con_scikitlearn/01_Clasificacion.html#el-reto-de-la-clasificación",
+    "href": "01_Aprendizaje_supervisado_con_scikitlearn/01_Clasificacion.html#el-reto-de-la-clasificación",
+    "title": "Clasificación",
+    "section": "El reto de la clasificación",
+    "text": "El reto de la clasificación\n\nAjustar KNN: k vecinos más cercanos\n\n\nPredecir KNN: k vecinos más cercanos",
+    "crumbs": [
+      "Aprendizaje supervisado con scikit-learn",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Clasificación</span>"
+    ]
+  },
+  {
+    "objectID": "01_Aprendizaje_supervisado_con_scikitlearn/01_Clasificacion.html#medir-el-rendimiento-del-modelo",
+    "href": "01_Aprendizaje_supervisado_con_scikitlearn/01_Clasificacion.html#medir-el-rendimiento-del-modelo",
+    "title": "Clasificación",
+    "section": "Medir el rendimiento del modelo",
+    "text": "Medir el rendimiento del modelo\n\nDivisión entrenamiento/prueba + cálculo de precisión\n\n\nSobreajuste e infraajuste\n\n\nVisualizar la complejidad del modelo",
+    "crumbs": [
+      "Aprendizaje supervisado con scikit-learn",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Clasificación</span>"
     ]
   }
 ]
