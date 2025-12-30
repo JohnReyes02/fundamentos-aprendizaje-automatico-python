@@ -1,0 +1,18 @@
+# Bienvenida {.unnumbered}
+
+📊 Nivel: Intermedio  
+🕒 Duración estimada: 4 horas  
+🎥 Incluye código, visualizaciones y ejercicios
+
+---
+
+## Descripción
+
+
+
+## Módulos del curso
+
+1. []()
+2. []()
+3. []()
+4. []()

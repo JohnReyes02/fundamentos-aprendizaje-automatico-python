@@ -1,0 +1,59 @@
+project: 
+  type: book
+  output-dir: docs
+
+lang: es
+
+execute: 
+  freeze: auto
+
+book: 
+  title: "Fundamentos del aprendizaje automático en python"
+  author: "Edwin John Fredy Reyes Aguirre"
+  reader-mode: false
+  date: last-modified
+
+  sidebar:
+    style: docked
+    search: true
+    collapse-level: 1
+  
+  # En esta seccion se enlaza el repositorio de GitHub
+  repo-url: https://github.com/JohnReyes02/fundamentos-aprendizaje-automatico-python
+  repo-branch: main
+  repo-actions: [edit, issue, source]
+  sharing: [twitter, facebook, linkedin]
+
+  chapters: 
+    - index.qmd
+
+    - part: "Aprendizaje supervisado con scikit-learn"
+      chapters: 
+        - 01_Aprendizaje_supervisado_con_scikitlearn/index.qmd
+    
+    - part: "Aprendizaje no supervisado en Python"
+      chapters: 
+        - 02_Aprendizaje_no_supervisado_en_python/index.qmd
+    
+    - part: "Introducción al aprendizaje profundo con PyTorch"
+      chapters: 
+        - 03_Introduccion_al_aprendizaje_profundo_con_pytorch/index.qmd
+    
+    - part: "Reinforcement Learning with Gymnasium in Python"
+      chapters: 
+        - 04_Reinforcement_learning_with_gymnasium_in_python/index.qmd
+
+website:
+  site-url: https://johnreyes02.github.io/fundamentos-aprendizaje-automatico-python/
+
+format:
+  html:
+    theme: 
+      light: flatly
+      dark: darkly
+    toc: true
+    toc-title: 'Contenido'
+    number-sections: false
+    code-copy: true
+    code-overflow: wrap
+    fig-align: center

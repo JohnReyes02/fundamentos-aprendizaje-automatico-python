@@ -1,0 +1,44 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Fundamentos del aprendizaje automático en python",
+    "section": "",
+    "text": "Bienvenida",
+    "crumbs": [
+      "Bienvenida"
+    ]
+  },
+  {
+    "objectID": "index.html#descripción-del-programa",
+    "href": "index.html#descripción-del-programa",
+    "title": "Fundamentos del aprendizaje automático en python",
+    "section": "Descripción del programa",
+    "text": "Descripción del programa\nAprende el arte del aprendizaje automático y sal como un Jefe de predicción, reconocimiento de patrones y los inicios del Aprendizaje Profundo y de Refuerzo.",
+    "crumbs": [
+      "Bienvenida"
+    ]
+  },
+  {
+    "objectID": "01_Aprendizaje_supervisado_con_scikitlearn/index.html",
+    "href": "01_Aprendizaje_supervisado_con_scikitlearn/index.html",
+    "title": "Bienvenida",
+    "section": "",
+    "text": "Descripción\n📊 Nivel: Intermedio\n🕒 Duración estimada: 4 horas\n🎥 Incluye código, visualizaciones y ejercicios",
+    "crumbs": [
+      "Aprendizaje supervisado con scikit-learn",
+      "Bienvenida"
+    ]
+  },
+  {
+    "objectID": "01_Aprendizaje_supervisado_con_scikitlearn/index.html#módulos-del-curso",
+    "href": "01_Aprendizaje_supervisado_con_scikitlearn/index.html#módulos-del-curso",
+    "title": "Bienvenida",
+    "section": "Módulos del curso",
+    "text": "Módulos del curso",
+    "crumbs": [
+      "Aprendizaje supervisado con scikit-learn",
+      "Bienvenida"
+    ]
+  }
+]

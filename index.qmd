@@ -1,0 +1,4 @@
+# Bienvenida {.unnumbered}
+
+## Descripción del programa
+Aprende el arte del aprendizaje automático y sal como un Jefe de predicción, reconocimiento de patrones y los inicios del Aprendizaje Profundo y de Refuerzo.
