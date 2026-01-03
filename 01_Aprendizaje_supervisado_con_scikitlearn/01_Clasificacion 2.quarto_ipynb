@@ -2,7 +2,7 @@
  "cells": [
   {
    "cell_type": "markdown",
-   "id": "0ae75c0b",
+   "id": "f0372892",
    "metadata": {},
    "source": [
     "# Clasificación\n",
@@ -68,7 +68,7 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "30fd590f",
+   "id": "ac012c5b",
    "metadata": {},
    "outputs": [],
    "source": [
@@ -83,7 +83,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "9438509b",
+   "id": "fb40c6fa",
    "metadata": {},
    "source": [
     "![](images/paste-3.png)\n",
@@ -165,7 +165,7 @@
   {
    "cell_type": "code",
    "execution_count": 2,
-   "id": "75af5ed6",
+   "id": "a59a4a7b",
    "metadata": {
     "md-indent": "    "
    },
@@ -181,7 +181,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "3ce96de3",
+   "id": "86fe8874",
    "metadata": {},
    "source": [
     "    ![](images/paste-13.png)"
@@ -190,7 +190,7 @@
   {
    "cell_type": "code",
    "execution_count": 3,
-   "id": "0160f69e",
+   "id": "3edca306",
    "metadata": {
     "md-indent": "    "
    },
@@ -204,11 +204,196 @@
   },
   {
    "cell_type": "markdown",
-   "id": "98e6c7d9",
+   "id": "52d60636",
    "metadata": {},
    "source": [
+    "-   Predecir con datos no etiquetados"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "c9dd1c23",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#| echo: true\n",
+    "#| eval: false\n",
+    "X_new = np.array([[56.8, 17.5],\n",
+    "                  [24.4, 24.1],\n",
+    "                  [50.1, 10.9]])\n",
+    "\n",
+    "print(X_new.shape)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "20b1bd6d",
+   "metadata": {},
+   "source": [
+    "![](images/paste-14.png)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "283e73c4",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#| echo: true\n",
+    "#| eval: false\n",
+    "predictions = knn.predict(X_new)\n",
+    "print('Predictions: {}' .format(predictions))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "b7a76f5f",
+   "metadata": {},
+   "source": [
+    "![](images/paste-15.png)\n",
+    "\n",
     "### Ajustar KNN: k vecinos más cercanos\n",
     "\n",
+    "En este ejercicio, construirás tu primer modelo de clasificación utilizando el conjunto de datos `churn_df`, que se ha precargado para el resto del capítulo. \n",
+    "\n",
+    "El objetivo, `churn` tiene que ser una sola columna con el mismo múmero de observaciones que los datos de las características. Los datos de las características ya se han convertido en matrices `numpy`.\n",
+    "\n",
+    "\"`account_length`\" y \"`costumer_service_calls`\" se tratan como características porque la duración de la cuenta indica fidelidad del cliente, las llamadas frecuentes al servicio de atención al cliente pueden ser señal de insatisfacción y ambas pueden ser buenos predictores de la rotación.\n",
+    "\n",
+    "#### Instrucciones\n",
+    "\n",
+    "- Importa `KNeighborsClassifier` desde `sklearn.neighbors`.\n",
+    "- Instncia un `KNeighborsClassifier` llamado `knn` con `6` vecinos.\n",
+    "- Ajusta el clasificador a los datos utilizando el método `.fit()`."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "2ef5b6e0",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>account_length</th>\n",
+       "      <th>total_day_charge</th>\n",
+       "      <th>total_eve_charge</th>\n",
+       "      <th>total_night_charge</th>\n",
+       "      <th>total_intl_charge</th>\n",
+       "      <th>customer_service_calls</th>\n",
+       "      <th>churn</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>101</td>\n",
+       "      <td>45.85</td>\n",
+       "      <td>17.65</td>\n",
+       "      <td>9.64</td>\n",
+       "      <td>1.22</td>\n",
+       "      <td>3</td>\n",
+       "      <td>1</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>73</td>\n",
+       "      <td>22.30</td>\n",
+       "      <td>9.05</td>\n",
+       "      <td>9.98</td>\n",
+       "      <td>2.75</td>\n",
+       "      <td>2</td>\n",
+       "      <td>0</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>86</td>\n",
+       "      <td>24.62</td>\n",
+       "      <td>17.53</td>\n",
+       "      <td>11.49</td>\n",
+       "      <td>3.13</td>\n",
+       "      <td>4</td>\n",
+       "      <td>0</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>59</td>\n",
+       "      <td>34.73</td>\n",
+       "      <td>21.02</td>\n",
+       "      <td>9.66</td>\n",
+       "      <td>3.24</td>\n",
+       "      <td>1</td>\n",
+       "      <td>0</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4</th>\n",
+       "      <td>129</td>\n",
+       "      <td>27.42</td>\n",
+       "      <td>18.75</td>\n",
+       "      <td>10.11</td>\n",
+       "      <td>2.59</td>\n",
+       "      <td>1</td>\n",
+       "      <td>0</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "   account_length  total_day_charge  total_eve_charge  total_night_charge  \\\n",
+       "0             101             45.85             17.65                9.64   \n",
+       "1              73             22.30              9.05                9.98   \n",
+       "2              86             24.62             17.53               11.49   \n",
+       "3              59             34.73             21.02                9.66   \n",
+       "4             129             27.42             18.75               10.11   \n",
+       "\n",
+       "   total_intl_charge  customer_service_calls  churn  \n",
+       "0               1.22                       3      1  \n",
+       "1               2.75                       2      0  \n",
+       "2               3.13                       4      0  \n",
+       "3               3.24                       1      0  \n",
+       "4               2.59                       1      0  "
+      ]
+     },
+     "execution_count": 1,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "import pandas as pd\n",
+    "\n",
+    "ruta = './data/churn_df.csv'\n",
+    "churn_df = pd.read_csv(ruta)\n",
+    "churn_df.head()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "10169b91",
+   "metadata": {},
+   "source": [
     "### Predecir KNN: k vecinos más cercanos\n",
     "\n",
     "## Medir el rendimiento del modelo\n",
