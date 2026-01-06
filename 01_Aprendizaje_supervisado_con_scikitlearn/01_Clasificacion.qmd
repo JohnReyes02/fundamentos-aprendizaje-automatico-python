@@ -274,7 +274,7 @@ El modelo ha predicho que los primeros y terceros clientes no se darán de baja 
     #| echo: true
     #| eval: false
     from sklearn.model_selection import train_test_split
-    X_train, X_text, y_train, y_test = train_test_split(X, y, text_size=0.3, random_state=21, stratify=y)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=21, stratify=y)
 
     knn = KNeighborsClassifier(n_neighbors=6)
     knn.fit(X_train, y_train)
@@ -327,6 +327,117 @@ El modelo ha predicho que los primeros y terceros clientes no se darán de baja 
 
 ### División entrenamiento/prueba + cálculo de precisión
 
+¡Es hora de practicar la división de tus datos en conjuntos de entrenamiento y de prueba con el conjunto de datos `churn_df`!
+
+#### Instrucciones
+
+- Importa `train_test_split` desde `sklear.model_selection`.
+- Divide `X` y `y` en conjuntos de entrenamiento y de prueba, estableciendo `test_size` igual al 20%, `random_state` a `42`, y asegurándote que las proporciones de las etiquetas objetivo reflejan las del conjunto de datos original.
+- Ajusta el modelo `knn` a los datos de entrenamiento.
+- Calcula e imprime la precisión del modelo para los datos de prueba.
+
+```{python}
+# Import the module
+from sklearn.model_selection import train_test_split
+
+X = churn_df.drop('churn', axis=1).values
+y = churn_df['churn'].values
+
+# Split into training and test sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
+knn = KNeighborsClassifier(n_neighbors=5)
+
+# Fit the classifier to the training data
+knn.fit(X_train, y_train)
+
+# Print the accuracy
+print(knn.score(X_test, y_test))
+```
+
+::: {.callout-important title="¿Por qué usar `stratify=y`?" collapse="true"}
+En problemas de **clasificación**, `stratify=y` hace que el **split** mantenga en **train** y **test** la misma proporción de clases que hay en el conjunto original.
+Esto es especialmente útil cuando las clases están **desbalanceadas** (por ejemplo, pocos casos de `churn=1`), porque evita que el conjunto de prueba quede con muy pocos (o cero) ejemplos de la clase minoritaria, lo que haría que métricas como *accuracy* sean engañosas.
+:::
+
+¡Excelente! En unas pocas líneas de código se dividió un conjunto de datos, se ajustó un modelo KNN y se encontró que su precisión es del 87%.
+
 ### Sobreajuste e infraajuste
 
+Interpretar la complejidad del modelo es una buena forma de evaluar el rendimiento del aprendizaje supervisado. Tu objetivo es producir un modelo que pueda interpretar la relación entre las características y la variable objetivo, así como generalizar bien cuando se exponga a nuevas observaciones.
+
+::: {.callout-note collapse="true"}
+Para poder hacer el ejecicio fue necesario cargar el dataset `Telecom Churn Data.csv` para posteriormente dividir las características y la variable objetivo, similar al ejercicio en DAtaCamp.
+:::
+
+```{python}
+ruta1 = './data/Telecom Churn Data.csv'
+churn_df1 = pd.read_csv(ruta1)
+
+X = churn_df1.drop('churn', axis=1).values
+y = churn_df1['churn'].values
+
+# División de entrenamiento y test
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4, random_state=42, stratify=y)
+```
+
+#### Instrucciones
+
+- Crea `neighbors` como una matriz `numpy` de valores desde `1` hasta `12` inclusive.
+- Instancia un `KNeighborsClassifier`, con el número de vecinos igual al iterador `neighbor`
+- Ajusta el modelo a los datos de entrenamiento.
+- Calcula las puntuaciones de precisión del conjunto de entrenamiento y del conjunto de prueba por separado utilizando el método `.score()` y asigna los resultados a los diccionarios `train_accuracies` y `test_accuracies` respectivamente, utilizando el iterador `neighbor` como índice.
+
+```{python}
+# Create neighbors
+neighbors = np.arange(1, 13)
+train_accuracies = {}
+test_accuracies = {}
+
+for neighbor in neighbors:
+
+    # Set up a KNN Classifier
+    knn = KNeighborsClassifier(n_neighbors=neighbor)
+
+    # Fit the model 
+    knn.fit(X_train, y_train)
+
+    # Compute accuracy
+    train_accuracies[neighbor] = knn.score(X_train, y_train)
+    test_accuracies[neighbor] = knn.score(X_test, y_test)
+
+print(neighbors, '\n', train_accuracies, '\n', test_accuracies)
+```
+
+¿Notas cómo la precisión del entrenamiento disminuye a medida que el número de vecinos inicialmente aumenta, y viseversa para la precisión de la prueba? Estas puntuaciones serían mucho más fáciles de interpretar en un gráfico de líneas, así que vamos a producir una curva de complejidad del modelo con estos resultados.
+
+
 ### Visualizar la complejidad del modelo
+
+Ahora que has calculado la precisión del modelo KNN en los conjuntos de entrenamiento y prueba utilizando varios valores de `n_neighbors`, puedes crear una curva de complejidad del modelo para visualizar cómo cambia el rendimiento a medida que el modelo se hace menos complejo.
+
+#### Instrucciones
+
+- Añade un título `"KNN: Varyin Number of Neighbors"`.
+- Traza el método `.values()` de `train_accuracies` en el eje y contra `neighbors` en el eje x, con una etiqueta `"Training Accuracy"`.
+- Traza el método `.values()` de `test_accuracies` en el eje y contra `neighbors` en el eje x, con una etiqueta `"Testing Accuracy"`.
+
+
+```{python}
+import matplotlib.pyplot as plt
+
+# Add a title
+plt.title("KNN: Varying Number of Neighbors")
+
+# Plot training accuracies
+plt.plot(neighbors, train_accuracies.values(), label='Training Accuracy')
+
+# Plot test accuracies
+plt.plot(neighbors, test_accuracies.values(), label='Testing Accuracy')
+
+plt.legend()
+plt.xlabel("Number of Neighbors")
+plt.ylabel("Accuracy")
+plt.show()
+```
+
+Observa cómo la precisión del entrenamiento disminuye y la precisión de la prueba aumenta a medida que el número de vecinos aumenta. Para el conjunto de prueba, la precisión alcanza su punto máximo con 7 vecinos, lo que sugiere que es el valor óptimo para el modelo. ¡Ahora exploremos los modelos de regresión!
