@@ -20,10 +20,45 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -73,6 +108,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Buscar"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 </head>
@@ -396,8 +434,19 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contenido</h2>
+   
+  <ul>
+  <li><a href="#introducción-a-la-regresión" id="toc-introducción-a-la-regresión" class="nav-link active" data-scroll-target="#introducción-a-la-regresión">Introducción a la regresión</a>
+  <ul class="collapse">
+  <li><a href="#crear-características" id="toc-crear-características" class="nav-link" data-scroll-target="#crear-características">Crear características</a></li>
+  <li><a href="#construye-un-modelo-de-regresión-lineal" id="toc-construye-un-modelo-de-regresión-lineal" class="nav-link" data-scroll-target="#construye-un-modelo-de-regresión-lineal">Construye un modelo de regresión lineal</a></li>
+  <li><a href="#visualizar-un-modelo-de-regresión-lineal" id="toc-visualizar-un-modelo-de-regresión-lineal" class="nav-link" data-scroll-target="#visualizar-un-modelo-de-regresión-lineal">Visualizar un modelo de regresión lineal</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/JohnReyes02/fundamentos-aprendizaje-automatico-python/edit/main/01_Aprendizaje_supervisado_con_scikitlearn/02_Regresion.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/JohnReyes02/fundamentos-aprendizaje-automatico-python/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li><li><a href="https://github.com/JohnReyes02/fundamentos-aprendizaje-automatico-python/blob/main/01_Aprendizaje_supervisado_con_scikitlearn/02_Regresion.qmd" class="toc-action"><i class="bi empty"></i>Ver el código</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -422,8 +471,249 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>En este capítulo , te introducirás en la regresión y construirás modelos para predecir los valores de las ventas utilizando un conjunto de datos sobre gastos publicitarios. Aprenderás la mecánica de la regresión lineal y las métricas de rendimiento más comunes,como r_squared y error cuadrático medio. Realizarás la validación cruzada k-fold y aplicarás la regularización a los modelos de regresión para reducir el riesgo de sobreajuste.</p>
+<section id="introducción-a-la-regresión" class="level2">
+<h2 class="anchored" data-anchor-id="introducción-a-la-regresión">Introducción a la regresión</h2>
+<ul>
+<li>Predicción de niveles de glucosa</li>
+</ul>
+<div id="d394abd0" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>ruta <span class="op">=</span> <span class="st">'./data/Diabetes Clean Data.csv'</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>diabetes_df <span class="op">=</span> pd.read_csv(ruta)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>diabetes_df.head()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<div>
 
 
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">pregnancies</th>
+<th data-quarto-table-cell-role="th">glucose</th>
+<th data-quarto-table-cell-role="th">diastolic</th>
+<th data-quarto-table-cell-role="th">triceps</th>
+<th data-quarto-table-cell-role="th">insulin</th>
+<th data-quarto-table-cell-role="th">bmi</th>
+<th data-quarto-table-cell-role="th">dpf</th>
+<th data-quarto-table-cell-role="th">age</th>
+<th data-quarto-table-cell-role="th">diabetes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>6</td>
+<td>148</td>
+<td>72</td>
+<td>35</td>
+<td>0</td>
+<td>33.6</td>
+<td>0.627</td>
+<td>50</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1</td>
+<td>85</td>
+<td>66</td>
+<td>29</td>
+<td>0</td>
+<td>26.6</td>
+<td>0.351</td>
+<td>31</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>8</td>
+<td>183</td>
+<td>64</td>
+<td>0</td>
+<td>0</td>
+<td>23.3</td>
+<td>0.672</td>
+<td>32</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>1</td>
+<td>89</td>
+<td>66</td>
+<td>23</td>
+<td>94</td>
+<td>28.1</td>
+<td>0.167</td>
+<td>21</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>0</td>
+<td>137</td>
+<td>40</td>
+<td>35</td>
+<td>168</td>
+<td>43.1</td>
+<td>2.288</td>
+<td>33</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<ul>
+<li>Creación de matrices de características y objetivos</li>
+</ul>
+<div id="de2896e6" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> diabetes_df.drop(<span class="st">'glucose'</span>, axis<span class="op">=</span><span class="dv">1</span>).values</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> diabetes_df[<span class="st">'glucose'</span>].values</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(X), <span class="bu">type</span>(y))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'numpy.ndarray'&gt; &lt;class 'numpy.ndarray'&gt;</code></pre>
+</div>
+</div>
+<ul>
+<li>Predicciones a partir de una única característica</li>
+</ul>
+<div id="d2a39f44" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>X_bmi <span class="op">=</span> X[:, <span class="dv">4</span>]</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(y.shape, X_bmi.shape)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(768,) (768,)</code></pre>
+</div>
+</div>
+<div id="2ffaa59a" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>X_bmi <span class="op">=</span> X_bmi.reshape(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>) <span class="co"># necesario para poder usarlo en scikit learn</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(X_bmi.shape)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(768, 1)</code></pre>
+</div>
+</div>
+<ul>
+<li>Representación gráfica de la glucosa frente al índice de masa corporal</li>
+</ul>
+<div id="032c4dfc" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>plt.scatter(X_bmi, y)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Blood Glucose (mg/dL)'</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Body Mass Index'</span>)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="02_Regresion_files/figure-html/cell-6-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>Ajuste de un modelo de regresión</li>
+</ul>
+<div id="3f466048" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>reg <span class="op">=</span> LinearRegression()</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>reg.fit(X_bmi, y)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>predictions <span class="op">=</span> reg.predict(X_bmi)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>plt.scatter(X_bmi, y)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>plt.plot(X_bmi, predictions)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Blood Glucose (mg/dL)'</span>)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Body Mass Index'</span>)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="02_Regresion_files/figure-html/cell-7-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="crear-características" class="level3">
+<h3 class="anchored" data-anchor-id="crear-características">Crear características</h3>
+<p>En este capítulo, trabajarás con un conjunto de datos llamado <code>sales_df</code>, que contine información sobre el gasto en camapañas publicitarias en distintos tipos de medios y el número de dólares generados en ventas por la campaña respectiva. Aquí tienes las dos primeras filas:</p>
+<div id="9f0520ac" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display" data-execution_count="7">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">tv</th>
+<th data-quarto-table-cell-role="th">radio</th>
+<th data-quarto-table-cell-role="th">social_media</th>
+<th data-quarto-table-cell-role="th">sales</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>16000.0</td>
+<td>6566.23</td>
+<td>2907.98</td>
+<td>54732.76</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>13000.0</td>
+<td>9237.76</td>
+<td>2409.57</td>
+<td>46677.90</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Utilizarás los gastos de publicidad como características para predecir los valores de las ventas, trabajando inicialmente con la columna <code>"radio"</code>. Sin embargo, antes de hacer ninguna predicción, tendrás que crear la matriz de características y objetivos, dándoles el formato correcto para scikit-learn.</p>
+<section id="instrucciones" class="level4">
+<h4 class="anchored" data-anchor-id="instrucciones">Instrucciones</h4>
+<ul>
+<li><p>Crea <code>X</code>, una matriz con los valores de la columna <code>"radio"</code> del DataFrame <code>sales_df</code>.</p></li>
+<li><p>Crea <code>y</code>, una matriz con los valores de la columna <code>"sales"</code> del DataFrame <code>sales_df</code>.</p></li>
+<li><p>Remodela <code>X</code> en una matriz Numpy bidimensional.</p></li>
+<li><p>Imprime la forma de <code>X</code> y <code>y</code>.</p></li>
+</ul>
+<div id="86f5600c" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create X from de radio column's values</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> sales_df[<span class="st">'radio'</span>].values</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Create y from de sales column's values</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> sales_df[<span class="st">'sales'</span>].values</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Reshape X</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> X.reshape(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the shape of the features and targets</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(X.shape, y.shape)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(4546, 1) (4546,)</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="construye-un-modelo-de-regresión-lineal" class="level3">
+<h3 class="anchored" data-anchor-id="construye-un-modelo-de-regresión-lineal">Construye un modelo de regresión lineal</h3>
+</section>
+<section id="visualizar-un-modelo-de-regresión-lineal" class="level3">
+<h3 class="anchored" data-anchor-id="visualizar-un-modelo-de-regresión-lineal">Visualizar un modelo de regresión lineal</h3>
+
+
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -855,4 +1145,4 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/JohnReyes02/fundamentos-aprendizaje-automatico-python/edit/main/01_Aprendizaje_supervisado_con_scikitlearn/02_Regresion.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/JohnReyes02/fundamentos-aprendizaje-automatico-python/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li><li><a href="https://github.com/JohnReyes02/fundamentos-aprendizaje-automatico-python/blob/main/01_Aprendizaje_supervisado_con_scikitlearn/02_Regresion.qmd" class="toc-action"><i class="bi empty"></i>Ver el código</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/JohnReyes02/fundamentos-aprendizaje-automatico-python/edit/main/01_Aprendizaje_supervisado_con_scikitlearn/02_Regresion.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/JohnReyes02/fundamentos-aprendizaje-automatico-python/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li><li><a href="https://github.com/JohnReyes02/fundamentos-aprendizaje-automatico-python/blob/main/01_Aprendizaje_supervisado_con_scikitlearn/02_Regresion.qmd" class="toc-action"><i class="bi empty"></i>Ver el código</a></li></ul></div></div></div></footer></body></html>

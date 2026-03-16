@@ -1,1 +1,110 @@
 # Regresión
+
+En este capítulo , te introducirás en la regresión y construirás modelos para predecir los valores de las ventas utilizando un conjunto de datos sobre gastos publicitarios. Aprenderás la mecánica de la regresión lineal y las métricas de rendimiento más comunes,como r_squared y error cuadrático medio. Realizarás la validación cruzada k-fold y aplicarás la regularización a los modelos de regresión para reducir el riesgo de sobreajuste.
+
+## Introducción a la regresión
+
+- Predicción de niveles de glucosa
+
+```{python}
+import pandas as pd
+ruta = './data/Diabetes Clean Data.csv'
+diabetes_df = pd.read_csv(ruta)
+diabetes_df.head()
+```
+
+- Creación de matrices de características y objetivos
+
+```{python}
+X = diabetes_df.drop('glucose', axis=1).values
+y = diabetes_df['glucose'].values
+print(type(X), type(y))
+```
+
+- Predicciones a partir de una única característica
+
+```{python}
+X_bmi = X[:, 4]
+print(y.shape, X_bmi.shape)
+```
+
+```{python}
+X_bmi = X_bmi.reshape(-1, 1) # necesario para poder usarlo en scikit learn
+print(X_bmi.shape)
+```
+
+- Representación gráfica de la glucosa frente al índice de masa corporal
+
+```{python}
+import matplotlib.pyplot as plt
+
+plt.scatter(X_bmi, y)
+plt.ylabel('Blood Glucose (mg/dL)')
+plt.xlabel('Body Mass Index')
+plt.show()
+```
+
+- Ajuste de un modelo de regresión
+
+```{python}
+from sklearn.linear_model import LinearRegression
+
+reg = LinearRegression()
+reg.fit(X_bmi, y)
+predictions = reg.predict(X_bmi)
+
+plt.scatter(X_bmi, y)
+plt.plot(X_bmi, predictions)
+plt.ylabel('Blood Glucose (mg/dL)')
+plt.xlabel('Body Mass Index')
+plt.show()
+```
+
+### Crear características
+
+En este capítulo, trabajarás con un conjunto de datos llamado `sales_df`, que contine información sobre el gasto en camapañas publicitarias en distintos tipos de medios y el número de dólares generados en ventas por la campaña respectiva. Aquí tienes las dos primeras filas:
+
+```{python}
+#| echo: false
+#| eval: true
+ruta = './data/sales_df.csv'
+sales_df = pd.read_csv(ruta)
+sales_df.head(2)
+```
+
+Utilizarás los gastos de publicidad como características para predecir los valores de las ventas, trabajando inicialmente con la columna `"radio"`. Sin embargo, antes de hacer ninguna predicción, tendrás que crear la matriz de características y objetivos, dándoles el formato correcto para scikit-learn.
+
+#### Instrucciones
+
+- Crea `X`, una matriz con los valores de la columna `"radio"` del DataFrame `sales_df`.
+
+- Crea `y`, una matriz con los valores de la columna `"sales"` del DataFrame `sales_df`.
+
+- Remodela `X` en una matriz Numpy bidimensional.
+
+- Imprime la forma de `X` y `y`.
+
+```{python}
+import numpy as np
+
+# Create X from de radio column's values
+X = sales_df['radio'].values
+
+# Create y from de sales column's values
+y = sales_df['sales'].values
+
+# Reshape X
+X = X.reshape(-1, 1)
+
+# Check the shape of the features and targets
+print(X.shape, y.shape)
+```
+
+
+### Construye un modelo de regresión lineal
+
+### Visualizar un modelo de regresión lineal
+
+
+
+

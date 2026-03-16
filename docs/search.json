@@ -94,5 +94,49 @@
       "Aprendizaje supervisado con scikit-learn",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Clasificación</span>"
     ]
+  },
+  {
+    "objectID": "01_Aprendizaje_supervisado_con_scikitlearn/02_Regresion.html",
+    "href": "01_Aprendizaje_supervisado_con_scikitlearn/02_Regresion.html",
+    "title": "Regresión",
+    "section": "",
+    "text": "Introducción a la regresión\nEn este capítulo , te introducirás en la regresión y construirás modelos para predecir los valores de las ventas utilizando un conjunto de datos sobre gastos publicitarios. Aprenderás la mecánica de la regresión lineal y las métricas de rendimiento más comunes,como r_squared y error cuadrático medio. Realizarás la validación cruzada k-fold y aplicarás la regularización a los modelos de regresión para reducir el riesgo de sobreajuste.\nimport pandas as pd\nruta = './data/Diabetes Clean Data.csv'\ndiabetes_df = pd.read_csv(ruta)\ndiabetes_df.head()\n\n\n\n\n\n\n\n\npregnancies\nglucose\ndiastolic\ntriceps\ninsulin\nbmi\ndpf\nage\ndiabetes\n\n\n\n\n0\n6\n148\n72\n35\n0\n33.6\n0.627\n50\n1\n\n\n1\n1\n85\n66\n29\n0\n26.6\n0.351\n31\n0\n\n\n2\n8\n183\n64\n0\n0\n23.3\n0.672\n32\n1\n\n\n3\n1\n89\n66\n23\n94\n28.1\n0.167\n21\n0\n\n\n4\n0\n137\n40\n35\n168\n43.1\n2.288\n33\n1\nX = diabetes_df.drop('glucose', axis=1).values\ny = diabetes_df['glucose'].values\nprint(type(X), type(y))\n\n&lt;class 'numpy.ndarray'&gt; &lt;class 'numpy.ndarray'&gt;\nX_bmi = X[:, 4]\nprint(y.shape, X_bmi.shape)\n\n(768,) (768,)\nX_bmi = X_bmi.reshape(-1, 1) # necesario para poder usarlo en scikit learn\nprint(X_bmi.shape)\n\n(768, 1)\nimport matplotlib.pyplot as plt\n\nplt.scatter(X_bmi, y)\nplt.ylabel('Blood Glucose (mg/dL)')\nplt.xlabel('Body Mass Index')\nplt.show()\nfrom sklearn.linear_model import LinearRegression\n\nreg = LinearRegression()\nreg.fit(X_bmi, y)\npredictions = reg.predict(X_bmi)\n\nplt.scatter(X_bmi, y)\nplt.plot(X_bmi, predictions)\nplt.ylabel('Blood Glucose (mg/dL)')\nplt.xlabel('Body Mass Index')\nplt.show()",
+    "crumbs": [
+      "Aprendizaje supervisado con scikit-learn",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Regresión</span>"
+    ]
+  },
+  {
+    "objectID": "01_Aprendizaje_supervisado_con_scikitlearn/02_Regresion.html#intruducción-a-la-regresión",
+    "href": "01_Aprendizaje_supervisado_con_scikitlearn/02_Regresion.html#intruducción-a-la-regresión",
+    "title": "Regresión",
+    "section": "",
+    "text": "Crear características\n\n\nConstruye un modelo de regresión lineal\n\n\nVisualizar un modelo de regresión lineal",
+    "crumbs": [
+      "Aprendizaje supervisado con scikit-learn",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Regresión</span>"
+    ]
+  },
+  {
+    "objectID": "01_Aprendizaje_supervisado_con_scikitlearn/02_Regresion.html#conceptos-básicos-de-regresión-lineal",
+    "href": "01_Aprendizaje_supervisado_con_scikitlearn/02_Regresion.html#conceptos-básicos-de-regresión-lineal",
+    "title": "Regresión",
+    "section": "Conceptos básicos de regresión lineal",
+    "text": "Conceptos básicos de regresión lineal\n\nAjustar y predecir para la regresión\n\n\nRendimiento de la regresión",
+    "crumbs": [
+      "Aprendizaje supervisado con scikit-learn",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Regresión</span>"
+    ]
+  },
+  {
+    "objectID": "01_Aprendizaje_supervisado_con_scikitlearn/02_Regresion.html#introducción-a-la-regresión",
+    "href": "01_Aprendizaje_supervisado_con_scikitlearn/02_Regresion.html#introducción-a-la-regresión",
+    "title": "Regresión",
+    "section": "",
+    "text": "Predicción de niveles de glucosa\n\n\n\nCreación de matrices de características y objetivos\n\n\n\nPredicciones a partir de una única característica\n\n\n\n\nRepresentación gráfica de la glucosa frente al índice de masa corporal\n\n\n\nAjuste de un modelo de regresión\n\n\n\nCrear características\nEn este capítulo, trabajarás con un conjunto de datos llamado sales_df, que contine información sobre el gasto en camapañas publicitarias en distintos tipos de medios y el número de dólares generados en ventas por la campaña respectiva. Aquí tienes las dos primeras filas:\n\n\n\n\n\n\n\n\n\ntv\nradio\nsocial_media\nsales\n\n\n\n\n0\n16000.0\n6566.23\n2907.98\n54732.76\n\n\n1\n13000.0\n9237.76\n2409.57\n46677.90\n\n\n\n\n\n\n\nUtilizarás los gastos de publicidad como características para predecir los valores de las ventas, trabajando inicialmente con la columna \"radio\". Sin embargo, antes de hacer ninguna predicción, tendrás que crear la matriz de características y objetivos, dándoles el formato correcto para scikit-learn.\n\nInstrucciones\n\nCrea X, una matriz con los valores de la columna \"radio\" del DataFrame sales_df.\nCrea y, una matriz con los valores de la columna \"sales\" del DataFrame sales_df.\nRemodela X en una matriz Numpy bidimensional.\nImprime la forma de X y y.\n\n\nimport numpy as np\n\n# Create X from de radio column's values\nX = sales_df['radio'].values\n\n# Create y from de sales column's values\ny = sales_df['sales'].values\n\n# Reshape X\nX = X.reshape(-1, 1)\n\n# Check the shape of the features and targets\nprint(X.shape, y.shape)\n\n(4546, 1) (4546,)\n\n\n\n\n\nConstruye un modelo de regresión lineal\n\n\nVisualizar un modelo de regresión lineal",
+    "crumbs": [
+      "Aprendizaje supervisado con scikit-learn",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Regresión</span>"
+    ]
   }
 ]
