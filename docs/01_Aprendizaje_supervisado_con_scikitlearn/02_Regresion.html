@@ -477,7 +477,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>Predicción de niveles de glucosa</li>
 </ul>
-<div id="d394abd0" class="cell" data-execution_count="1">
+<div id="4b56c5d6" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>ruta <span class="op">=</span> <span class="st">'./data/Diabetes Clean Data.csv'</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>diabetes_df <span class="op">=</span> pd.read_csv(ruta)</span>
@@ -571,7 +571,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>Creación de matrices de características y objetivos</li>
 </ul>
-<div id="de2896e6" class="cell" data-execution_count="2">
+<div id="9ed5300d" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> diabetes_df.drop(<span class="st">'glucose'</span>, axis<span class="op">=</span><span class="dv">1</span>).values</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> diabetes_df[<span class="st">'glucose'</span>].values</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(X), <span class="bu">type</span>(y))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -582,14 +582,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>Predicciones a partir de una única característica</li>
 </ul>
-<div id="d2a39f44" class="cell" data-execution_count="3">
+<div id="d7e46aab" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>X_bmi <span class="op">=</span> X[:, <span class="dv">4</span>]</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(y.shape, X_bmi.shape)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>(768,) (768,)</code></pre>
 </div>
 </div>
-<div id="2ffaa59a" class="cell" data-execution_count="4">
+<div id="4779b921" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>X_bmi <span class="op">=</span> X_bmi.reshape(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>) <span class="co"># necesario para poder usarlo en scikit learn</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(X_bmi.shape)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -599,7 +599,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>Representación gráfica de la glucosa frente al índice de masa corporal</li>
 </ul>
-<div id="032c4dfc" class="cell" data-execution_count="5">
+<div id="ac494057" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>plt.scatter(X_bmi, y)</span>
@@ -617,7 +617,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>Ajuste de un modelo de regresión</li>
 </ul>
-<div id="3f466048" class="cell" data-execution_count="6">
+<div id="c45ca32d" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>reg <span class="op">=</span> LinearRegression()</span>
@@ -640,7 +640,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="crear-características" class="level3">
 <h3 class="anchored" data-anchor-id="crear-características">Crear características</h3>
 <p>En este capítulo, trabajarás con un conjunto de datos llamado <code>sales_df</code>, que contine información sobre el gasto en camapañas publicitarias en distintos tipos de medios y el número de dólares generados en ventas por la campaña respectiva. Aquí tienes las dos primeras filas:</p>
-<div id="9f0520ac" class="cell" data-execution_count="7">
+<div id="2d05dab0" class="cell" data-execution_count="7">
 <div class="cell-output cell-output-display" data-execution_count="7">
 <div>
 
@@ -685,7 +685,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Remodela <code>X</code> en una matriz Numpy bidimensional.</p></li>
 <li><p>Imprime la forma de <code>X</code> y <code>y</code>.</p></li>
 </ul>
-<div id="86f5600c" class="cell" data-execution_count="8">
+<div id="0a173e2e" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create X from de radio column's values</span></span>
@@ -707,11 +707,78 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="construye-un-modelo-de-regresión-lineal" class="level3">
 <h3 class="anchored" data-anchor-id="construye-un-modelo-de-regresión-lineal">Construye un modelo de regresión lineal</h3>
+<p>Ahora que has creado tus matrices de características y objetivos, entrenaras un modelo de regresión lineal en todos los valores de características y objetivos.</p>
+<p>Como el objetivo es evaluar la relación entre la característica y los valores objetivo, no es necesario dividir los datos en conjuntos de entrenamiento y prueba.</p>
+<p><code>X</code> y <code>y</code> se han precargado de la siguiente manera</p>
+<div id="f565c83d" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> sales_df[<span class="st">'sales'</span>].values</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> sales_df[<span class="st">'radio'</span>].values.reshape(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>) </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="instrucciones-1" class="level4">
+<h4 class="anchored" data-anchor-id="instrucciones-1">Instrucciones</h4>
+<ul>
+<li><p>Importa <code>LinearRegression</code>.</p></li>
+<li><p>Instancia un modelo de regresión lineal.</p></li>
+<li><p>Predice los valores de venta utilizando <code>X</code>, almacenando como <code>predictions</code>.</p></li>
+</ul>
+<div id="0517cb3c" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import LinearRegression</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the model</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>reg <span class="op">=</span> LinearRegression()</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit the model to the data</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>reg.fit(X, y)</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Make predictions</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>predictions <span class="op">=</span> reg.predict(X)</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(predictions[:<span class="dv">5</span>])</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[ 95491.17119147 117829.51038393 173423.38071499 291603.11444202
+ 111137.28167129]</code></pre>
+</div>
+</div>
+<p>Se observa cómo los valores de la ventas para las primeras cinco predcciones varían de $95.000 a mas de $290.000.</p>
+</section>
 </section>
 <section id="visualizar-un-modelo-de-regresión-lineal" class="level3">
 <h3 class="anchored" data-anchor-id="visualizar-un-modelo-de-regresión-lineal">Visualizar un modelo de regresión lineal</h3>
+<p>Ahora que has construído el modelo de regresión lineal y lo has entrenado utilizando todas las observaciones disponibles, puedes visualizar lo bien que se ajusta el modelo a los datos. Esto te permite interpretar la relación entre el gasto en publicidad de <code>radio</code> y los valores de <code>sales</code>.</p>
+<section id="instrucciones-2" class="level4">
+<h4 class="anchored" data-anchor-id="instrucciones-2">Instrucciones</h4>
+<ul>
+<li><p>Importa <code>matplotlib.pyplot</code> como <code>plt</code>.</p></li>
+<li><p>Crea un gráfico de dispersión visualizando <code>y</code> frente a <code>X</code>, con las observaciones en azul.</p></li>
+<li><p>Visualiza el gráfico.</p></li>
+</ul>
+<div id="c2e94cc1" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import matplotlib.pyplot</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a scatter plot</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>plt.scatter(X, y, color<span class="op">=</span><span class="st">'blue'</span>)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Create line plot</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>plt.plot(X, predictions, color<span class="op">=</span><span class="st">'red'</span>)</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Radio Expenditure ($)'</span>)</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Sales ($)'</span>)</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the plot</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="02_Regresion_files/figure-html/cell-12-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>¡El modelo captura muy bien una correlación lineal casi perfecta entre el gasto en publicidad en radio y las ventas!</p>
 
 
+</section>
 </section>
 </section>
 

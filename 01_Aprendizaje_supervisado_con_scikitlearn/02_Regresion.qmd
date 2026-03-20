@@ -100,10 +100,74 @@ X = X.reshape(-1, 1)
 print(X.shape, y.shape)
 ```
 
-
 ### Construye un modelo de regresión lineal
 
+Ahora que has creado tus matrices de características  y objetivos, entrenaras un modelo de regresión lineal en todos los valores de características y objetivos.
+
+Como el objetivo es evaluar la relación entre la característica y los valores objetivo, no es necesario dividir los datos en conjuntos de entrenamiento y prueba.
+
+`X` y `y` se han precargado de la siguiente manera
+
+```{python}
+y = sales_df['sales'].values
+X = sales_df['radio'].values.reshape(-1, 1) 
+```
+
+#### Instrucciones
+
+- Importa `LinearRegression`.
+
+- Instancia un modelo de regresión lineal.
+
+- Predice los valores de venta utilizando `X`, almacenando como `predictions`.
+
+```{python}
+# Import LinearRegression
+from sklearn.linear_model import LinearRegression
+
+# Create the model
+reg = LinearRegression()
+
+# Fit the model to the data
+reg.fit(X, y)
+
+# Make predictions
+predictions = reg.predict(X)
+
+print(predictions[:5])
+```
+
+Se observa cómo los valores de la ventas para las primeras cinco predcciones varían de $95.000 a mas de $290.000.
+
 ### Visualizar un modelo de regresión lineal
+
+Ahora que has construído el modelo de regresión lineal y lo has entrenado utilizando todas las observaciones disponibles, puedes visualizar lo bien que se ajusta el modelo a los datos. Esto te permite interpretar la relación entre el gasto en publicidad de `radio` y los valores de `sales`.
+
+#### Instrucciones
+
+- Importa `matplotlib.pyplot` como `plt`.
+
+- Crea un gráfico de dispersión visualizando `y` frente a `X`, con las observaciones en azul.
+
+- Visualiza el gráfico.
+
+```{python}
+# Import matplotlib.pyplot
+import matplotlib.pyplot as plt
+
+# Create a scatter plot
+plt.scatter(X, y, color='blue')
+
+# Create line plot
+plt.plot(X, predictions, color='red')
+plt.xlabel('Radio Expenditure ($)')
+plt.ylabel('Sales ($)')
+
+# Display the plot
+plt.show()
+```
+¡El modelo captura muy bien una correlación lineal casi perfecta entre el gasto en publicidad en radio y las ventas! 
+
 
 
 
