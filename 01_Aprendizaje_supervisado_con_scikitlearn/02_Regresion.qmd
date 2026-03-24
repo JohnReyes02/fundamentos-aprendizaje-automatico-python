@@ -4,7 +4,7 @@ En este capítulo , te introducirás en la regresión y construirás modelos par
 
 ## Introducción a la regresión
 
-- Predicción de niveles de glucosa
+-   Predicción de niveles de glucosa
 
 ```{python}
 import pandas as pd
@@ -13,7 +13,7 @@ diabetes_df = pd.read_csv(ruta)
 diabetes_df.head()
 ```
 
-- Creación de matrices de características y objetivos
+-   Creación de matrices de características y objetivos
 
 ```{python}
 X = diabetes_df.drop('glucose', axis=1).values
@@ -21,7 +21,7 @@ y = diabetes_df['glucose'].values
 print(type(X), type(y))
 ```
 
-- Predicciones a partir de una única característica
+-   Predicciones a partir de una única característica
 
 ```{python}
 X_bmi = X[:, 4]
@@ -33,7 +33,7 @@ X_bmi = X_bmi.reshape(-1, 1) # necesario para poder usarlo en scikit learn
 print(X_bmi.shape)
 ```
 
-- Representación gráfica de la glucosa frente al índice de masa corporal
+-   Representación gráfica de la glucosa frente al índice de masa corporal
 
 ```{python}
 import matplotlib.pyplot as plt
@@ -44,7 +44,7 @@ plt.xlabel('Body Mass Index')
 plt.show()
 ```
 
-- Ajuste de un modelo de regresión
+-   Ajuste de un modelo de regresión
 
 ```{python}
 from sklearn.linear_model import LinearRegression
@@ -76,13 +76,13 @@ Utilizarás los gastos de publicidad como características para predecir los val
 
 #### Instrucciones
 
-- Crea `X`, una matriz con los valores de la columna `"radio"` del DataFrame `sales_df`.
+-   Crea `X`, una matriz con los valores de la columna `"radio"` del DataFrame `sales_df`.
 
-- Crea `y`, una matriz con los valores de la columna `"sales"` del DataFrame `sales_df`.
+-   Crea `y`, una matriz con los valores de la columna `"sales"` del DataFrame `sales_df`.
 
-- Remodela `X` en una matriz Numpy bidimensional.
+-   Remodela `X` en una matriz Numpy bidimensional.
 
-- Imprime la forma de `X` y `y`.
+-   Imprime la forma de `X` y `y`.
 
 ```{python}
 import numpy as np
@@ -102,7 +102,7 @@ print(X.shape, y.shape)
 
 ### Construye un modelo de regresión lineal
 
-Ahora que has creado tus matrices de características  y objetivos, entrenaras un modelo de regresión lineal en todos los valores de características y objetivos.
+Ahora que has creado tus matrices de características y objetivos, entrenaras un modelo de regresión lineal en todos los valores de características y objetivos.
 
 Como el objetivo es evaluar la relación entre la característica y los valores objetivo, no es necesario dividir los datos en conjuntos de entrenamiento y prueba.
 
@@ -115,11 +115,11 @@ X = sales_df['radio'].values.reshape(-1, 1)
 
 #### Instrucciones
 
-- Importa `LinearRegression`.
+-   Importa `LinearRegression`.
 
-- Instancia un modelo de regresión lineal.
+-   Instancia un modelo de regresión lineal.
 
-- Predice los valores de venta utilizando `X`, almacenando como `predictions`.
+-   Predice los valores de venta utilizando `X`, almacenando como `predictions`.
 
 ```{python}
 # Import LinearRegression
@@ -137,7 +137,7 @@ predictions = reg.predict(X)
 print(predictions[:5])
 ```
 
-Se observa cómo los valores de la ventas para las primeras cinco predcciones varían de $95.000 a mas de $290.000.
+Se observa cómo los valores de la ventas para las primeras cinco predcciones varían de \$95.000 a mas de \$290.000.
 
 ### Visualizar un modelo de regresión lineal
 
@@ -145,11 +145,11 @@ Ahora que has construído el modelo de regresión lineal y lo has entrenado util
 
 #### Instrucciones
 
-- Importa `matplotlib.pyplot` como `plt`.
+-   Importa `matplotlib.pyplot` como `plt`.
 
-- Crea un gráfico de dispersión visualizando `y` frente a `X`, con las observaciones en azul.
+-   Crea un gráfico de dispersión visualizando `y` frente a `X`, con las observaciones en azul.
 
-- Visualiza el gráfico.
+-   Visualiza el gráfico.
 
 ```{python}
 # Import matplotlib.pyplot
@@ -166,9 +166,35 @@ plt.ylabel('Sales ($)')
 # Display the plot
 plt.show()
 ```
-¡El modelo captura muy bien una correlación lineal casi perfecta entre el gasto en publicidad en radio y las ventas! 
 
+¡El modelo captura muy bien una correlación lineal casi perfecta entre el gasto en publicidad en radio y las ventas!
 
+## Conceptos básicos de la regresión lineal
 
+-   Mecánica de regresión
 
+    -   $$ y = ax + b $$
 
+        -   La regresión lineal simple utiliza una característica
+            -   y = objetivo
+            -   x = una característica
+            -   a, b =. parámetros/coeficientes del modelo - pendiente, intercepto.
+
+    -   ¿Cómo elegimos a y b?
+
+        -   Se define una función de error para cualquier línea dada
+        -   Se elige la línea que minimice la función de error
+
+    -   Función de error = función de pérdida = función de coste
+
+-   Función de pérdida
+
+    ![](images/paste-20.png){width="60%"}
+
+-   Mínimos cuadrados ordinarios
+
+    ![](images/paste-21.png){width="60%"}
+
+$$
+RSS = \sum_{i=1}^n (y_i - \hat{y}_i)^2 
+$$
