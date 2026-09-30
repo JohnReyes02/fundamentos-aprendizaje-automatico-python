@@ -398,4 +398,4 @@ print("RMSE: {}".format(rmse))
 ### Regulación regularizada: cresta
 
 ### Regresión Lasso para la importancia de las características
->>>>>>> ba344a8 (update regression)
+
