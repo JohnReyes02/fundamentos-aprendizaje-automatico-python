@@ -169,7 +169,7 @@ plt.show()
 
 ¡El modelo captura muy bien una correlación lineal casi perfecta entre el gasto en publicidad en radio y las ventas!
 
-<<<<<<< HEAD
+
 ## Conceptos básicos de la regresión lineal
 
 -   Mecánica de regresión
@@ -199,7 +199,7 @@ plt.show()
 $$
 RSS = \sum_{i=1}^n (y_i - \hat{y}_i)^2 
 $$
-=======
+
 ## Conceptos básicos de regresión lineal
 
 - Mecánica de Regresión

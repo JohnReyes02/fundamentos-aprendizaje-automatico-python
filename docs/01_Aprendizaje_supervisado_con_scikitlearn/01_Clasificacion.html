@@ -2,11 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
-<<<<<<< HEAD
-<meta name="generator" content="quarto-1.8.27">
-=======
 <meta name="generator" content="quarto-1.10.18">
->>>>>>> ba344a8 (update regression)
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -79,21 +75,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../01_Aprendizaje_supervisado_con_scikitlearn/index.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<<<<<<< HEAD
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-63075c2b5a729fb82bbb7a1a80e90653.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-f0afbd6c95f589ea79c3110e65578f87.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-63075c2b5a729fb82bbb7a1a80e90653.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
-=======
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
@@ -102,7 +87,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/bootstrap/bootstrap-b9e8d9863b7928896e96ff6494065671.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark-0f9678be0cef61336d3a7452e3fb1390.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="../site_libs/bootstrap/bootstrap-b9e8d9863b7928896e96ff6494065671.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
->>>>>>> ba344a8 (update regression)
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -603,11 +587,7 @@ window.Quarto = {
 <li>Scikit-learn sigue la misma sintaxis para todos los modelos de aprendizaje supervisado lo que hace que el flujo de trabajo sea reproducible.</li>
 </ul></li>
 </ul>
-<<<<<<< HEAD
-<div id="3440aee6" class="cell" data-execution_count="1">
-=======
 <div id="967d8ad9" class="cell" data-execution_count="1">
->>>>>>> ba344a8 (update regression)
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.module <span class="im">import</span> Model</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> Model()</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>model.fit(X, y)</span>
@@ -697,32 +677,20 @@ window.Quarto = {
 </table>
 <p>KNN crea un límite de decisión para predecir si los clientes se darán de baja. Se prevee que los clientes en la franja con fondo gris, se darán de baja.</p></li>
 <li><p>Utilizar scikit-learn para ajustar un clasificador</p>
-<<<<<<< HEAD
-<div id="82f6ee0c" class="cell" data-execution_count="2">
-=======
 <div id="c1fcc3dc" class="cell" data-execution_count="2">
->>>>>>> ba344a8 (update regression)
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.neighbors <span class="im">import</span> KNeighborsClassifier</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> churn_df[[<span class="st">"total_day_charge"</span>, <span class="st">"total_eve_charge"</span>]].values</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> churn_df[<span class="st">"churn"</span>].values</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(X.shape, y.shape)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><img src="images/paste-13.png" class="img-fluid"></p>
-<<<<<<< HEAD
-<div id="77a97b6e" class="cell" data-execution_count="3">
-=======
 <div id="a5ac30ca" class="cell" data-execution_count="3">
->>>>>>> ba344a8 (update regression)
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>knn <span class="op">=</span> KNeighborsClassifier(n_neighbors<span class="op">=</span><span class="dv">15</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>knn.fit(X, y)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div></li>
 <li><p>Predecir con datos no etiquetados</p></li>
 </ul>
-<<<<<<< HEAD
-<div id="6f268d1a" class="cell" data-execution_count="4">
-=======
 <div id="95846819" class="cell" data-execution_count="4">
->>>>>>> ba344a8 (update regression)
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>X_new <span class="op">=</span> np.array([[<span class="fl">56.8</span>, <span class="fl">17.5</span>],</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>                  [<span class="fl">24.4</span>, <span class="fl">24.1</span>],</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                  [<span class="fl">50.1</span>, <span class="fl">10.9</span>]])</span>
@@ -730,11 +698,7 @@ window.Quarto = {
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(X_new.shape)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><img src="images/paste-14.png" class="img-fluid"></p>
-<<<<<<< HEAD
-<div id="cfa7c3f5" class="cell" data-execution_count="5">
-=======
 <div id="b07ff834" class="cell" data-execution_count="5">
->>>>>>> ba344a8 (update regression)
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>predictions <span class="op">=</span> knn.predict(X_new)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Predictions: </span><span class="sc">{}</span><span class="st">'</span> .<span class="bu">format</span>(predictions))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -751,11 +715,7 @@ window.Quarto = {
 <li>Instncia un <code>KNeighborsClassifier</code> llamado <code>knn</code> con <code>6</code> vecinos.</li>
 <li>Ajusta el clasificador a los datos utilizando el método <code>.fit()</code>.</li>
 </ul>
-<<<<<<< HEAD
-<div id="bbee4c5c" class="cell" data-execution_count="6">
-=======
 <div id="cead8624" class="cell" data-execution_count="6">
->>>>>>> ba344a8 (update regression)
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>ruta <span class="op">=</span> <span class="st">'./data/churn_df.csv'</span></span>
@@ -835,11 +795,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<<<<<<< HEAD
-<div id="97a6b460" class="cell" data-execution_count="7">
-=======
 <div id="55746c7d" class="cell" data-execution_count="7">
->>>>>>> ba344a8 (update regression)
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import KNeigborsClassifier</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.neighbors <span class="im">import</span> KNeighborsClassifier</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1647,11 +1603,7 @@ forceTheme('sk-container-id-1');</script>
 <section id="predecir-knn-k-vecinos-más-cercanos" class="level3">
 <h3 class="anchored" data-anchor-id="predecir-knn-k-vecinos-más-cercanos">Predecir KNN: k vecinos más cercanos</h3>
 <p>Ahora que has ajustado tu clasificador KNN, puedes utilizarlo para predecir la etiqueta de nuevos puntos de datos. Para el entrenamiento se utilizaron todos los datos disponibles, pero, afortunadamente, hay nuevas observaciones disponibles. Se han precargado como <code>X_new</code>.</p>
-<<<<<<< HEAD
-<div id="8186fb62" class="cell" data-execution_count="8">
-=======
 <div id="300c502b" class="cell" data-execution_count="8">
->>>>>>> ba344a8 (update regression)
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>X_new <span class="op">=</span> np.array([[<span class="fl">30.0</span>, <span class="fl">17.5</span>],</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>                  [<span class="fl">107.0</span>, <span class="fl">24.1</span>],</span>
@@ -1663,11 +1615,7 @@ forceTheme('sk-container-id-1');</script>
 <li><p>Crea <code>y_pred</code> prediciendo los valores objetivo de las características no vistas <code>X_new</code> utilizando el modelo <code>knn</code>.</p></li>
 <li><p>Imprime las etiquetas predichas para el conjunto de predicciones.</p></li>
 </ul>
-<<<<<<< HEAD
-<div id="fc46958a" class="cell" data-execution_count="9">
-=======
 <div id="d0479694" class="cell" data-execution_count="9">
->>>>>>> ba344a8 (update regression)
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Predict the labs for the X_new</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> knn.predict(X_new)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1697,11 +1645,7 @@ forceTheme('sk-container-id-1');</script>
 <li><p>Precisión del cálculo</p>
 <p><img src="images/paste-16.png" class="img-fluid" style="width:60.0%"></p></li>
 <li><p>Entrenamiento/prueba de la división</p>
-<<<<<<< HEAD
-<div id="403b7f31" class="cell" data-execution_count="10">
-=======
 <div id="e021abd1" class="cell" data-execution_count="10">
->>>>>>> ba344a8 (update regression)
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(X, y, test_size<span class="op">=</span><span class="fl">0.3</span>, random_state<span class="op">=</span><span class="dv">21</span>, stratify<span class="op">=</span>y)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1717,11 +1661,7 @@ forceTheme('sk-container-id-1');</script>
 <p><img src="images/paste-18.png" class="img-fluid" style="width:80.0%"></p></li>
 </ul></li>
 <li><p>Complejidad del modelo y sobreajuste o o ajuste insuficiente</p>
-<<<<<<< HEAD
-<div id="14a8d45f" class="cell" data-execution_count="11">
-=======
 <div id="7863f9ea" class="cell" data-execution_count="11">
->>>>>>> ba344a8 (update regression)
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>train_accuracies <span class="op">=</span> {}</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>test_accuracies <span class="op">=</span> {}</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>neighbors <span class="op">=</span> np.arange(<span class="dv">1</span>, <span class="dv">26</span>)</span>
@@ -1732,11 +1672,7 @@ forceTheme('sk-container-id-1');</script>
 <span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    test_accuracies[neighbor] <span class="op">=</span> knn.score(X_test, y_test)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </div></li>
 <li><p>Representación gráfica de nuestros resultados</p>
-<<<<<<< HEAD
-<div id="6c93247b" class="cell" data-execution_count="12">
-=======
 <div id="41dbbd8f" class="cell" data-execution_count="12">
->>>>>>> ba344a8 (update regression)
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"KNN: Varying Number of Neighbors"</span>)</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>plt.plot(neighbors, train_accuracies.values(), label<span class="op">=</span><span class="st">"Training Accuracy"</span>)</span>
@@ -1760,11 +1696,7 @@ forceTheme('sk-container-id-1');</script>
 <li>Ajusta el modelo <code>knn</code> a los datos de entrenamiento.</li>
 <li>Calcula e imprime la precisión del modelo para los datos de prueba.</li>
 </ul>
-<<<<<<< HEAD
-<div id="ba24f8e1" class="cell" data-execution_count="13">
-=======
 <div id="0f405e0f" class="cell" data-execution_count="13">
->>>>>>> ba344a8 (update regression)
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import the module</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1822,11 +1754,7 @@ Nota
 </div>
 </div>
 </div>
-<<<<<<< HEAD
-<div id="f1e6ed54" class="cell" data-execution_count="14">
-=======
 <div id="b54be4de" class="cell" data-execution_count="14">
->>>>>>> ba344a8 (update regression)
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>ruta1 <span class="op">=</span> <span class="st">'./data/Telecom Churn Data.csv'</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>churn_df1 <span class="op">=</span> pd.read_csv(ruta1)</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1844,11 +1772,7 @@ Nota
 <li>Ajusta el modelo a los datos de entrenamiento.</li>
 <li>Calcula las puntuaciones de precisión del conjunto de entrenamiento y del conjunto de prueba por separado utilizando el método <code>.score()</code> y asigna los resultados a los diccionarios <code>train_accuracies</code> y <code>test_accuracies</code> respectivamente, utilizando el iterador <code>neighbor</code> como índice.</li>
 </ul>
-<<<<<<< HEAD
-<div id="80665869" class="cell" data-execution_count="15">
-=======
 <div id="65da0f46" class="cell" data-execution_count="15">
->>>>>>> ba344a8 (update regression)
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create neighbors</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>neighbors <span class="op">=</span> np.arange(<span class="dv">1</span>, <span class="dv">13</span>)</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>train_accuracies <span class="op">=</span> {}</span>
@@ -1886,11 +1810,7 @@ Nota
 <li>Traza el método <code>.values()</code> de <code>train_accuracies</code> en el eje y contra <code>neighbors</code> en el eje x, con una etiqueta <code>"Training Accuracy"</code>.</li>
 <li>Traza el método <code>.values()</code> de <code>test_accuracies</code> en el eje y contra <code>neighbors</code> en el eje x, con una etiqueta <code>"Testing Accuracy"</code>.</li>
 </ul>
-<<<<<<< HEAD
-<div id="22b3e97e" class="cell" data-execution_count="16">
-=======
 <div id="9fba176f" class="cell" data-execution_count="16">
->>>>>>> ba344a8 (update regression)
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a title</span></span>
