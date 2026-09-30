@@ -169,6 +169,7 @@ plt.show()
 
 ¡El modelo captura muy bien una correlación lineal casi perfecta entre el gasto en publicidad en radio y las ventas!
 
+<<<<<<< HEAD
 ## Conceptos básicos de la regresión lineal
 
 -   Mecánica de regresión
@@ -198,3 +199,203 @@ plt.show()
 $$
 RSS = \sum_{i=1}^n (y_i - \hat{y}_i)^2 
 $$
+=======
+## Conceptos básicos de regresión lineal
+
+- Mecánica de Regresión
+
+  - $y = mx + b$
+
+    - La regresión lineal simple utiliza una característica
+
+      - $y =$ Objetivo
+      - $x =$ Una característica.
+      - $a, b =$ parámetros/coeficientes del modelo - pendiente, intercepto.
+
+  - ¿Cómo elegimos $a$ y $b$?
+
+    - Se define una función de error para cualquier línea dada.
+    - Se elige la línea que minimice la función de error.
+
+  - Función de error = función de pérdida = función de coste
+
+- La función de pérdida
+
+![](images/paste-20.png){width="502"}
+
+- Mínimos cuadrados ordinarios
+
+  $RSS = \sum_{i=1}^{n}(y_i - \hat{y}_i)^2$
+
+  Mínimos cuadrados ordinarios (MCO):
+
+  minimizar el RSS
+
+- Regresión lineal en dimensiones superiores
+
+  $$
+  y = a_1x_1 + a_2x_2 + b
+  $$
+
+  - Para ajustar aquí un modelo de regresión lineal:
+
+    - Hay que especificar tres variables: $a_1, a_2, b$
+
+  - En dimensiones superiores:
+
+    - Se conoce como regresión múltiple.
+    - Hay que especificar los coeficientes para cada característica y la variable $b$.
+
+    $$
+    y = a_1x_1 + a_2x_2 + a_3x_3 + ... + a_nx_n + b
+    $$
+
+  - Scikit-learn funciona exactamente igual:
+
+    - Se pasan dos matrices: características y objetivo
+
+- Regresión lineal utilizando todas las características
+
+```{python}
+#| eval: false
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+
+reg_all = LinearRegression()
+reg_all.fit(X_train, y_train)
+y_pred = reg_all.predict(X_test)
+
+```
+
+- R-cuadrado
+
+  - $R^2$: Cuantifica la varianza de los valores objetivo explicada por las características.
+
+    - Los valores van de 0 a 1
+
+  - $R^2$ alto:
+
+    ![](images/paste-22.png){width="353"}
+
+  - $R^2$ bajo:
+
+    ![](images/paste-23.png){width="352"}
+
+- R-cuadrado en scikit-learn
+
+```{python}
+#| eval: false
+reg_all.score(X_test, y_test)
+```
+
+![](images/paste-24.png){width="207" height="37"}
+
+- Error cuadrático medio y raíz del error cuadrático medio
+
+  $MSE = \frac{1}{n}\sum_{i=1}^{n}(y_i - \hat{y}_i)^2$
+
+  - El $MSE$ se mide en unidades objetivo, al cuadrado.
+
+  $RMSE = \sqrt{MSE}$
+
+  - El $RMSE$ se mide en las mismas unidades de la variable objetivo.
+
+- RMSE en scikit-learn
+
+```{python}
+#| eval: false
+from sklearn.metrics import root_mean_squared_error
+
+root_mean_squared_error(y_test, y_pred)
+```
+
+![](images/paste-25.png){width="326"}
+
+### Ajustar y predecir la regresión
+
+Ahora que ya se ha visto como funciona la regresión lineal, la tarea consiste en crear un modelo de regresión lineal múltiple utilizando todas las características del conjunto de datos `sales_df`. A continuación se muestran las dos primeras filas.
+
+```{python}
+#| echo: false
+sales_df = pd.read_csv('./data/sales_df.csv')
+sales_df.head(3)
+```
+A continuación, utilizarás este modelo para predecir las ventas en función de los valores de las características de prueba.
+
+#### Instrucciones
+
+- Crea `X`, una matriz que contenga los valores de todas las características de `sales_df` y `y`, que contenga todos los valores de la columna `"sales"`.
+
+- Instancia un modelo de regresión lineal.
+
+- Ajusta el modelo a los datos de entrenamiento.
+
+- Crea `y_pred`, haciendo predicciones para `sales` utilizando las características de prueba.
+
+```{python}
+from sklearn.model_selection import train_test_split
+
+# Create X and y arrays 
+X = sales_df.drop('sales', axis=1).values
+y = sales_df['sales'].values
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+
+# Instantiate the model 
+reg = LinearRegression()
+
+# Fit the model to the data
+reg.fit(X_train, y_train)
+
+# Make predictions
+y_pred = reg.predict(X_test)
+print("Predictions: {}, Actual Values: {}".format(y_pred[:2], y_test[:2]))
+```
+¡Las dos primeras predicciones parecen estar dentro de un 5% de los valores reales del conjunto de prueba!
+
+### Rendimiento de la regresión
+
+Ahora que has ajustado el modelo `reg` utilizando todas las características de `sales_df` y has hecho predicciones de los valores de ventas, puedes evaluar el rendimiento utilizando algunas métricas de regresión habituales.
+
+La tarea consiste en averiguar lo bien que las características pueden explicar la varianza de los valores objetivo, además de evaluar la capacidad del modelo para hacer predicciones sobre datos no vistos.
+
+#### Instrucciones
+
+- Import `root_mean_squared_error`.
+
+- Calcula la puntuación r_squared del modelo pasando los valores de la característica de prueba y los valores del objetivo de prueba a un método adecuado.
+
+- Calcula el error cuadrático medio del modelo utilizando `y_test` y `y_pred`.
+
+- Imprime `r_squared` y `rmse`
+
+```{python}
+# Import root_mean_squared_error
+from sklearn.metrics import root_mean_squared_error
+
+# Calculate R-squared
+r_squared = reg.score(X_test, y_test)
+
+# Compute RMSE
+rmse = root_mean_squared_error(y_test, y_pred)
+
+# Print the metrics
+print("R^2: {}".format(r_squared))
+print("RMSE: {}".format(rmse))
+```
+¡Las características explican el 99.9% de la varianza en los valores de venta! 
+
+## Validación cruzada
+
+### Validación cruzada por r-quared
+
+### Analizar las métricas de validación cruzada
+
+## Regresión regularizada
+
+### Regulación regularizada: cresta
+
+### Regresión Lasso para la importancia de las características
+>>>>>>> ba344a8 (update regression)
