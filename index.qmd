@@ -6,8 +6,8 @@ Aprende el arte del aprendizaje automático y sal como un Jefe de predicción, r
 ## Cursos del Programa
 1. [Aprendizaje supervisado con scikit-learn](01_Aprendizaje_supervisado_con_scikitlearn/index.qmd)
 2. [Proyecto - Predictive Modeling for Agriculture]()
-3. [Aprendizaje no supervisado en python](02_Aprendizaje_no_supervisado_en_python/index.qmd)
-4. [Proyecto - Clustering Antartic Pinguin Species]()
+3. [Aprendizaje no supervisado en Python](02_Aprendizaje_no_supervisado_en_python/index.qmd)
+4. [Proyecto - Clustering Antarctic Penguin Species]()
 5. [Introducción al aprendizaje profundo con PyTorch](03_Introduccion_al_aprendizaje_profundo_con_pytorch/index.qmd)
 6. [Reinforcement Learning with Gymnasium in Python](04_Reinforcement_learning_with_gymnasium_in_python/index.qmd)
 7. [Proyecto - Taxi Route Optimization with Reinforcement Learning]()

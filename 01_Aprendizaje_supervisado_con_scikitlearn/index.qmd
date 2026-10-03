@@ -7,7 +7,7 @@
 ---
 
 ## Descripción
-Desarrolla tus habilidades en machine learning con scikit-learn y descubre cómo utilizar esta popular biblioteca de Python para entrenar modelos utilizando datos etiquetados. En este curso, aprenderás a hacer predicciones potentes, como si un cliente se dará de baja de tu negocio, si una persona tiene diabetes e incluso cómo clasificar el género de una canción. Utilizando conjunto de datos del mundo real, descubrirás cómo construir modelos predictivos, ajustar sus parámetros y determinar su rendimiento con datos no vistos.
+Desarrolla tus habilidades en machine learning con scikit-learn y descubre cómo utilizar esta popular biblioteca de Python para entrenar modelos con datos etiquetados. En este curso, aprenderás a hacer predicciones potentes, como determinar si un cliente se dará de baja de tu negocio, si una persona tiene diabetes e incluso cómo clasificar el género de una canción. Utilizando conjuntos de datos del mundo real, descubrirás cómo construir modelos predictivos, ajustar sus parámetros y determinar su rendimiento con datos no vistos.
 
 
 ## Módulos del curso

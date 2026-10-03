@@ -8,7 +8,7 @@ execute:
   freeze: auto
 
 book: 
-  title: "Fundamentos del aprendizaje automático en python"
+  title: "Fundamentos del aprendizaje automático en Python"
   author: "Edwin John Fredy Reyes Aguirre"
   reader-mode: false
   date: last-modified

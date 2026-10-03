@@ -1,6 +1,6 @@
 # Regresión
 
-En este capítulo , te introducirás en la regresión y construirás modelos para predecir los valores de las ventas utilizando un conjunto de datos sobre gastos publicitarios. Aprenderás la mecánica de la regresión lineal y las métricas de rendimiento más comunes,como r_squared y error cuadrático medio. Realizarás la validación cruzada k-fold y aplicarás la regularización a los modelos de regresión para reducir el riesgo de sobreajuste.
+En este capítulo, te introducirás en la regresión y construirás modelos para predecir los valores de las ventas utilizando un conjunto de datos sobre gastos publicitarios. Aprenderás la mecánica de la regresión lineal y las métricas de rendimiento más comunes, como $R^2$ y el error cuadrático medio. Realizarás la validación cruzada K-fold y aplicarás la regularización a los modelos de regresión para reducir el riesgo de sobreajuste.
 
 ## Introducción a la regresión
 
@@ -62,7 +62,7 @@ plt.show()
 
 ### Crear características
 
-En este capítulo, trabajarás con un conjunto de datos llamado `sales_df`, que contine información sobre el gasto en camapañas publicitarias en distintos tipos de medios y el número de dólares generados en ventas por la campaña respectiva. Aquí tienes las dos primeras filas:
+En este capítulo, trabajarás con un conjunto de datos llamado `sales_df`, que contiene información sobre el gasto en campañas publicitarias en distintos tipos de medios y el número de dólares generados en ventas por la campaña respectiva. Aquí tienes las dos primeras filas:
 
 ```{python}
 #| echo: false
@@ -80,17 +80,17 @@ Utilizarás los gastos de publicidad como características para predecir los val
 
 -   Crea `y`, una matriz con los valores de la columna `"sales"` del DataFrame `sales_df`.
 
--   Remodela `X` en una matriz Numpy bidimensional.
+-   Remodela `X` en una matriz NumPy bidimensional.
 
 -   Imprime la forma de `X` y `y`.
 
 ```{python}
 import numpy as np
 
-# Create X from de radio column's values
+# Create X from the radio column's values
 X = sales_df['radio'].values
 
-# Create y from de sales column's values
+# Create y from the sales column's values
 y = sales_df['sales'].values
 
 # Reshape X
@@ -102,7 +102,7 @@ print(X.shape, y.shape)
 
 ### Construye un modelo de regresión lineal
 
-Ahora que has creado tus matrices de características y objetivos, entrenaras un modelo de regresión lineal en todos los valores de características y objetivos.
+Ahora que has creado tus matrices de características y objetivos, entrenarás un modelo de regresión lineal con todos los valores de las características y los objetivos.
 
 Como el objetivo es evaluar la relación entre la característica y los valores objetivo, no es necesario dividir los datos en conjuntos de entrenamiento y prueba.
 
@@ -137,11 +137,11 @@ predictions = reg.predict(X)
 print(predictions[:5])
 ```
 
-Se observa cómo los valores de la ventas para las primeras cinco predcciones varían de \$95.000 a mas de \$290.000.
+Se observa cómo los valores de las ventas para las primeras cinco predicciones varían de \$95.000 a más de \$290.000.
 
 ### Visualizar un modelo de regresión lineal
 
-Ahora que has construído el modelo de regresión lineal y lo has entrenado utilizando todas las observaciones disponibles, puedes visualizar lo bien que se ajusta el modelo a los datos. Esto te permite interpretar la relación entre el gasto en publicidad de `radio` y los valores de `sales`.
+Ahora que has construido el modelo de regresión lineal y lo has entrenado utilizando todas las observaciones disponibles, puedes visualizar lo bien que se ajusta el modelo a los datos. Esto te permite interpretar la relación entre el gasto en publicidad de `radio` y los valores de `sales`.
 
 #### Instrucciones
 
@@ -273,7 +273,7 @@ y_pred = reg_all.predict(X_test)
 
   - $R^2$: Cuantifica la varianza de los valores objetivo explicada por las características.
 
-    - Los valores van de 0 a 1
+    - El valor máximo es 1, pero puede ser negativo cuando el modelo obtiene un rendimiento peor que predecir la media.
 
   - $R^2$ alto:
 
@@ -315,7 +315,7 @@ root_mean_squared_error(y_test, y_pred)
 
 ### Ajustar y predecir la regresión
 
-Ahora que ya se ha visto como funciona la regresión lineal, la tarea consiste en crear un modelo de regresión lineal múltiple utilizando todas las características del conjunto de datos `sales_df`. A continuación se muestran las dos primeras filas.
+Ahora que ya se ha visto cómo funciona la regresión lineal, la tarea consiste en crear un modelo de regresión lineal múltiple utilizando todas las características del conjunto de datos `sales_df`. A continuación se muestran las dos primeras filas.
 
 ```{python}
 #| echo: false
@@ -363,13 +363,13 @@ La tarea consiste en averiguar lo bien que las características pueden explicar 
 
 #### Instrucciones
 
-- Import `root_mean_squared_error`.
+- Importa `root_mean_squared_error`.
 
-- Calcula la puntuación r_squared del modelo pasando los valores de la característica de prueba y los valores del objetivo de prueba a un método adecuado.
+- Calcula la puntuación $R^2$ del modelo pasando los valores de las características de prueba y los valores del objetivo de prueba a un método adecuado.
 
 - Calcula el error cuadrático medio del modelo utilizando `y_test` y `y_pred`.
 
-- Imprime `r_squared` y `rmse`
+- Imprime `r_squared` y `rmse`.
 
 ```{python}
 # Import root_mean_squared_error
@@ -389,13 +389,12 @@ print("RMSE: {}".format(rmse))
 
 ## Validación cruzada
 
-### Validación cruzada por r-quared
+### Validación cruzada mediante R-cuadrado
 
 ### Analizar las métricas de validación cruzada
 
 ## Regresión regularizada
 
-### Regulación regularizada: cresta
+### Regresión regularizada: cresta
 
 ### Regresión Lasso para la importancia de las características
-

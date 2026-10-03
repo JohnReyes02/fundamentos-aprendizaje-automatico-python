@@ -1,0 +1,18 @@
+# Bienvenida {.unnumbered}
+
+📊 Nivel: Intermedio  
+🕒 Duración estimada: 4 horas  
+🎥 Incluye código, visualizaciones y ejercicios
+
+---
+
+## Descripción
+El aprendizaje profunndo está en todas partes, desde las cámaras de los smartphones hasta los aistentes de voz o los vehículos autónomos. En este curso, descubrirás esta potente tecnología y aprenderás a aprovecharla con Pytorch, una de las bibliotecas de aprendizaje profundo más populares. Al final de este curso, serás capaz de aprovechar Pytorch para resolver problemas de clasificación y regresión utilizando el aprendizaje profundo.
+
+
+## Módulos del curso
+
+1. [Introducción a PyTorch, una biblioteca de aprendizaje profundo]()
+2. [Hiperparámetros y arquitectura de redes neuronales](02_Regresion.qmd)
+3. [Entrenar una red neuronal con PyTorch](03_Afinar_tu_modelo.qmd)
+4. [Evaluación y mejora de modelos](04_Preprocesamiento_y_canalizaciones.qmd)

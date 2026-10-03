@@ -1,6 +1,6 @@
 # Clasificación
 
-En este capítulo, se te presentarán los problemas de clasifiación y aprenderás a resolverlos mediante técnicas de aprendizaje supervisado. Aprenderás a dividir los datos en conjuntos de entrenamiento y de prueba, ajustar un modelo, hacer predicciones y evaluar la precisión. Descubrirás la relación entre la complejidad del modelo y el rendimiento, aplicando lo que aprendas a un conjunto de datos de rotación, donde clasificarás el estado de rotación de los clientes de una empresa de telecomunicaciones.
+En este capítulo, se te presentarán los problemas de clasificación y aprenderás a resolverlos mediante técnicas de aprendizaje supervisado. Aprenderás a dividir los datos en conjuntos de entrenamiento y de prueba, ajustar un modelo, hacer predicciones y evaluar la precisión. Descubrirás la relación entre la complejidad del modelo y el rendimiento, aplicando lo que aprendas a un conjunto de datos de rotación, donde clasificarás el estado de rotación de los clientes de una empresa de telecomunicaciones.
 
 ## Machine learning con scikit-learn
 
@@ -49,8 +49,8 @@ En este capítulo, se te presentarán los problemas de clasifiación y aprender�
 
     -   Requisitos:
         -   Que no falten valores.
-        -   Que los datos esten en formato numérico.
-        -   Que los datos esten almacenados en un DataFrame de pandas o en una matriz de Numpy.
+        -   Que los datos estén en formato numérico.
+        -   Que los datos estén almacenados en un DataFrame de pandas o en una matriz de NumPy.
     -   Hay que realizar primero un análisis exploratorio de datos (AED)
 
 -   Sintaxis de scikit-learn
@@ -71,7 +71,7 @@ print(predictions)
 
 ### Clasificación binaria
 
-Hay dos tipos de aprendizaje supervisado: clasificación y regresión. La clasificación binaria se utiliza para predecir una variable objetivo que solo tiene dos etiquetas, normalmente representados numéricamente con un cero o un uno.
+Hay dos tipos de aprendizaje supervisado: clasificación y regresión. La clasificación binaria se utiliza para predecir una variable objetivo que solo tiene dos etiquetas, normalmente representadas numéricamente con un cero o un uno.
 
 A continuación se muestra la página `.head()` de un conjunto de datos `churn_df`. Puedes esperar que el resto de los datos contengan valores similares.
 
@@ -87,13 +87,13 @@ Observando estos datos, ¿Qué columna podría ser la variable objetivo de la cl
 
 -   [x] "`churn`"
 
--   [ ] "`account_lenght`"
+-   [ ] "`account_length`"
 
 `churn` tiene valores de `0` y `1`, por lo que se puede predecir utilizando un modelo de clasificación binaria.
 
 ### El flujo de trabajo del aprendizaje supervisado
 
-Recuerda que sckikit-learn ofrece un flujo de trabajo repetible para utilizar modelos de aprendizaje supervisado con el fin de predecir los valores de la variable objetivo cuando se presentan nuevos datos.
+Recuerda que scikit-learn ofrece un flujo de trabajo repetible para utilizar modelos de aprendizaje supervisado con el fin de predecir los valores de la variable objetivo cuando se presentan nuevos datos.
 
 Reordena el pseudocódigo proporcionado para que represente con precisión el flujo de trabajo de construir un modelo de aprendizaje supervisado y hacer predicciones.
 
@@ -138,7 +138,7 @@ Puedes ver cómo scikit-learn permite hacer predicciones ¡con solo unas pocas l
     |--------------------------|--------------------------|
     | ![](images/paste-10.png) | ![](images/paste-11.png) |
 
-    KNN crea un límite de decisión para predecir si los clientes se darán de baja. Se prevee que los clientes en la franja con fondo gris, se darán de baja.
+    KNN crea un límite de decisión para predecir si los clientes se darán de baja. Se prevé que los clientes situados en la franja con fondo gris se darán de baja.
 
 -   Utilizar scikit-learn para ajustar un clasificador
 
@@ -187,14 +187,14 @@ print('Predictions: {}' .format(predictions))
 
 En este ejercicio, construirás tu primer modelo de clasificación utilizando el conjunto de datos `churn_df`, que se ha precargado para el resto del capítulo.
 
-El objetivo, `churn` tiene que ser una sola columna con el mismo múmero de observaciones que los datos de las características. Los datos de las características ya se han convertido en matrices `numpy`.
+El objetivo, `churn`, tiene que ser una sola columna con el mismo número de observaciones que los datos de las características. Los datos de las características ya se han convertido en matrices de NumPy.
 
-"`account_length`" y "`costumer_service_calls`" se tratan como características porque la duración de la cuenta indica fidelidad del cliente, las llamadas frecuentes al servicio de atención al cliente pueden ser señal de insatisfacción y ambas pueden ser buenos predictores de la rotación.
+`account_length` y `customer_service_calls` se tratan como características porque la duración de la cuenta indica fidelidad del cliente, las llamadas frecuentes al servicio de atención al cliente pueden ser señal de insatisfacción y ambas pueden ser buenos predictores de la rotación.
 
 #### Instrucciones
 
 -   Importa `KNeighborsClassifier` desde `sklearn.neighbors`.
--   Instncia un `KNeighborsClassifier` llamado `knn` con `6` vecinos.
+-   Instancia un `KNeighborsClassifier` llamado `knn` con `6` vecinos.
 -   Ajusta el clasificador a los datos utilizando el método `.fit()`.
 
 ```{python}
@@ -206,7 +206,7 @@ churn_df.head()
 ```
 
 ```{python}
-# Import KNeigborsClassifier
+# Import KNeighborsClassifier
 from sklearn.neighbors import KNeighborsClassifier
 
 y = churn_df['churn'].values
@@ -239,14 +239,14 @@ X_new = np.array([[30.0, 17.5],
 -   Imprime las etiquetas predichas para el conjunto de predicciones.
 
 ```{python}
-# Predict the labs for the X_new
+# Predict the labels for X_new
 y_pred = knn.predict(X_new)
 
 # Print the predictions
 print("Predictions: {}".format(y_pred))
 ```
 
-El modelo ha predicho que los primeros y terceros clientes no se darán de baja en el nuevo array. Pero, ¿cómo sabemos qué tan precisas son estas predicciones? Vamos a explorar cómo medir el rendimiento de un modelo en el próximo video.
+El modelo ha predicho que los primeros y terceros clientes no se darán de baja en la nueva matriz. Pero, ¿cómo sabemos qué tan precisas son estas predicciones? Vamos a explorar cómo medir el rendimiento de un modelo en el próximo video.
 
 ## Medir el rendimiento del modelo
 
@@ -278,7 +278,7 @@ El modelo ha predicho que los primeros y terceros clientes no se darán de baja 
 
     knn = KNeighborsClassifier(n_neighbors=6)
     knn.fit(X_train, y_train)
-    print(knn.score(X_text, y_test))
+    print(knn.score(X_test, y_test))
     ```
 
     ![](images/paste-17.png)
@@ -291,7 +291,7 @@ El modelo ha predicho que los primeros y terceros clientes no se darán de baja 
 
         ![](images/paste-18.png){width="80%"}
 
--   Complejidad del modelo y sobreajuste o o ajuste insuficiente
+-   Complejidad del modelo y sobreajuste o ajuste insuficiente
 
     ```{python}
     #| echo: true
@@ -331,7 +331,7 @@ El modelo ha predicho que los primeros y terceros clientes no se darán de baja 
 
 #### Instrucciones
 
-- Importa `train_test_split` desde `sklear.model_selection`.
+- Importa `train_test_split` desde `sklearn.model_selection`.
 - Divide `X` y `y` en conjuntos de entrenamiento y de prueba, estableciendo `test_size` igual al 20%, `random_state` a `42`, y asegurándote que las proporciones de las etiquetas objetivo reflejan las del conjunto de datos original.
 - Ajusta el modelo `knn` a los datos de entrenamiento.
 - Calcula e imprime la precisión del modelo para los datos de prueba.
@@ -366,7 +366,7 @@ Esto es especialmente útil cuando las clases están **desbalanceadas** (por eje
 Interpretar la complejidad del modelo es una buena forma de evaluar el rendimiento del aprendizaje supervisado. Tu objetivo es producir un modelo que pueda interpretar la relación entre las características y la variable objetivo, así como generalizar bien cuando se exponga a nuevas observaciones.
 
 ::: {.callout-note collapse="true"}
-Para poder hacer el ejecicio fue necesario cargar el dataset `Telecom Churn Data.csv` para posteriormente dividir las características y la variable objetivo, similar al ejercicio en DAtaCamp.
+Para poder hacer el ejercicio fue necesario cargar el conjunto de datos `Telecom Churn Data.csv` para posteriormente dividir las características y la variable objetivo, de forma similar al ejercicio de DataCamp.
 :::
 
 ```{python}
@@ -382,7 +382,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4, random_
 
 #### Instrucciones
 
-- Crea `neighbors` como una matriz `numpy` de valores desde `1` hasta `12` inclusive.
+- Crea `neighbors` como una matriz de NumPy con valores desde `1` hasta `12` inclusive.
 - Instancia un `KNeighborsClassifier`, con el número de vecinos igual al iterador `neighbor`
 - Ajusta el modelo a los datos de entrenamiento.
 - Calcula las puntuaciones de precisión del conjunto de entrenamiento y del conjunto de prueba por separado utilizando el método `.score()` y asigna los resultados a los diccionarios `train_accuracies` y `test_accuracies` respectivamente, utilizando el iterador `neighbor` como índice.
@@ -408,7 +408,7 @@ for neighbor in neighbors:
 print(neighbors, '\n', train_accuracies, '\n', test_accuracies)
 ```
 
-¿Notas cómo la precisión del entrenamiento disminuye a medida que el número de vecinos inicialmente aumenta, y viseversa para la precisión de la prueba? Estas puntuaciones serían mucho más fáciles de interpretar en un gráfico de líneas, así que vamos a producir una curva de complejidad del modelo con estos resultados.
+¿Notas cómo la precisión del entrenamiento disminuye a medida que el número de vecinos aumenta inicialmente y viceversa para la precisión de la prueba? Estas puntuaciones serían mucho más fáciles de interpretar en un gráfico de líneas, así que vamos a producir una curva de complejidad del modelo con estos resultados.
 
 
 ### Visualizar la complejidad del modelo
@@ -417,7 +417,7 @@ Ahora que has calculado la precisión del modelo KNN en los conjuntos de entrena
 
 #### Instrucciones
 
-- Añade un título `"KNN: Varyin Number of Neighbors"`.
+- Añade un título `"KNN: Varying Number of Neighbors"`.
 - Traza el método `.values()` de `train_accuracies` en el eje y contra `neighbors` en el eje x, con una etiqueta `"Training Accuracy"`.
 - Traza el método `.values()` de `test_accuracies` en el eje y contra `neighbors` en el eje x, con una etiqueta `"Testing Accuracy"`.
 

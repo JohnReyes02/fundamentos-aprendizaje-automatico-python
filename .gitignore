@@ -14,11 +14,13 @@ __pycache__/
 # Jupyter Notebooks
 .ipynb_checkpoints/
 *-checkpoint.ipynb
+/.jupyter_cache/
 
 # Quarto
 /.quarto/
 /_freeze/
 /_site/
+**/*.quarto_ipynb
 
 # Distribution / Build
 build/
@@ -39,7 +41,6 @@ wheels/
 
 # OS Files
 .DS_Store
-.DS_Store?
 ._*
 .Trashes
 ehthumbs.db
@@ -49,4 +50,9 @@ Thumbs.db
 .env
 .env.local
 .env.*
-**/*.quarto_ipynb
+
+# Editor and test caches
+.vscode/
+.idea/
+.pytest_cache/
+.ruff_cache/
