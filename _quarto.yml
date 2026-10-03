@@ -41,6 +41,10 @@ book:
     - part: "Introducción al aprendizaje profundo con PyTorch"
       chapters: 
         - 03_Introduccion_al_aprendizaje_profundo_con_pytorch/index.qmd
+        - 03_Introduccion_al_aprendizaje_profundo_con_pytorch/01_Introduccion_a_pytorch.qmd
+        - 03_Introduccion_al_aprendizaje_profundo_con_pytorch/02_Hiperparametros_y_arquitectura_de_rn.qmd
+        - 03_Introduccion_al_aprendizaje_profundo_con_pytorch/03_Entrenar_una_red_neuronal_con_pytorch.qmd
+        - 03_Introduccion_al_aprendizaje_profundo_con_pytorch/04_Evaluacion_y_mejora_de_los_modelos.qmd
     
     - part: "Reinforcement Learning with Gymnasium in Python"
       chapters: 

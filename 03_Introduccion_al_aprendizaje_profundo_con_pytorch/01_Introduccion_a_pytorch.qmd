@@ -1,0 +1,79 @@
+# Introducción a PyTorch, una biblioteca de aprendizaje profundo
+
+Vehículos autónomos, smartphones, motores de búsqueda... El aprendizaje profundo está ahora en todas partes. Antes de empezar a crear modelos complejos, te familizarizarás con PyTorch, un marco de aprendizaje profundo. Aprenderás a manipular tensores, crear estructuras de datos de PyTorch y construir tu primera red neuronal en PyTorch con capas lineales.
+
+## Introducción al aprendizaje profundo con PyTorch
+
+### Introducción a los tensores de PyTorch
+
+Los Tensores son la estructura de datos central de PyTorch y la base de aprendizaje profundo. Son similares a las matrices Numpy, pero tienen características únicas.
+
+Aquí tienes una lista Python llamada `temperatures` que contiene lecturas diarias de dos estaciones metereológicass. ¡Intenta convertir esto en un tensor!
+
+#### Instucciones
+
+- Comienza importando `torch`.
+
+- Crea un tensor a partir de la lista Python `temperatures`.
+
+```{python}
+# Import PyTorch
+import torch
+
+temperatures = [[72, 75, 78], [70, 73, 76]]
+
+# Create a tensor from temperatures
+temp_tensor = torch.tensor(temperatures)
+
+print(temp_tensor)
+```
+Se ha creado con éxito un tensor usando datos de temperatura. ¡Este es tu primer paso hacia la construcción de la primear red neuronal!
+
+
+### Comprobar y sumar tensores
+
+Mientras recoges los datos de temperatura, observas que las lecturas tienen una desviación de dos grados. Añade dos grados al tensor `temperatures` después de verificar su forma y tipo de datos con `torch` para garantizar la compatabilidad con el tensor `adjustment`.
+
+#### Instucciones
+
+1. 
+- Visualiza la forma del tensor `adjustment`.
+
+- Muestra el tipo de datos del tensor `adjustment`.
+
+```{python}
+adjustment = torch.tensor([[2, 2, 2], [2, 2, 2]])
+
+# Display the shape of the adjustment tensor
+print("Adjustment shape:", adjustment.shape)
+
+# Display the type of the adjustment tensor
+print("Adjustment type:", adjustment.dtype)
+
+print("Tempeartures shape:", temp_tensor.shape)
+print("Tempeartures shape:", temp_tensor.dtype)
+```
+
+2.  
+- Suma los tensores `temperatures` y `adjustment`
+
+```{python}
+# Add the temperatures and adjustment tensors
+corrected_temperatures = temp_tensor + adjustment
+print("Corrected temperatures:", corrected_temperatures)
+```
+
+## Redes neuronales y capas
+
+### Red de capas lineales
+
+### Comprender los pesos
+
+
+## Capas y parámetros ocultos
+
+### Tu perimera red neuronal
+
+### Apilar capas lineales
+
+### Contar el número de parámetros
