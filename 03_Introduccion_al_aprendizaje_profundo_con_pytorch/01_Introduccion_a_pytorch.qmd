@@ -4,6 +4,121 @@ Vehículos autónomos, smartphones, motores de búsqueda... El aprendizaje profu
 
 ## Introducción al aprendizaje profundo con PyTorch
 
+- ¡El aprendizaje profundo está en todas partes
+
+    - Traducción de idiomas
+    - Vehículos autónomos
+    - Diagnósticos médicos.
+    - Chatbots
+
+
+- ¿Qué es el aprendizaje profundo?
+
+    - Es un subconjunto del aprendizaje automático
+    - La estructura fundamental del modelo es una red de entradas, capas ocultas y salidas.
+    - La red puede tener una o muchas capas ocultas.
+
+
+- Redes de aprendizaje profundo
+
+    - Inspirado en cómo aprende el cerebro humano.
+    - Neuronas -> Redes Neuronales
+    - Los modelos requieren una gran cantidad de datos
+
+
+- PyTorch: un framework de aprendizaje profundo
+
+    - Uno de los frameworks más populares.
+    - Originalmente desarrollado por Meta AI, ahora parte de Linux Foundation.
+    - Intuitivo y fácil de usar
+    - Similar a Numpy
+
+
+- Tensores PyTorch
+
+    - Tensor:
+        - Similar a un arreglo o matriz
+        - Bloques de construcción de las redes neuronales
+
+Se puede importar la librería con el comando `import torch`
+```{python}
+import torch
+my_list = [[1, 2, 3], [4, 5, 6]]
+tensor = torch.tensor(my_list)
+print(tensor)
+```
+
+- Atributos del tensor
+
+    - Forma del tensor
+
+```{python}
+my_list = [[1, 2, 3], [4, 5, 6]]
+tensor = torch.tensor(my_list)
+print(tensor.shape)
+```
+
+    - Tipo de datos del tensor
+
+```{python}
+print(tensor.dtype)
+```
+
+### Introducción a las operaciones con tensores
+
+**Formas compatibles**
+
+```{python}
+a = torch.tensor([[1, 1],
+                    [2, 2]])
+
+b = torch.tensor([[2, 2],
+                    [3, 3]])
+
+# Suma / resta
+
+print(a + b)
+```
+
+**Formas incompatibles**
+
+```{python}
+#| eval: false
+a = torch.tensor([[1, 1],
+                    [2, 2]])
+
+b = torch.tensor([[2, 2, 4],
+                  [3, 3, 5]])
+
+# Suma / resta
+
+print(a + b)
+```
+
+- Multiplicación por elementos
+
+```{python}
+a = torch.tensor([[1, 1],
+                  [2, 2]])
+
+b = torch.tensor([[2, 2],
+                  [3, 3]])
+
+print(a* b)
+```
+
+- Multiplicación de matrices
+
+```{python}
+a = torch.tensor([[1, 1],
+                  [2, 2]])
+
+b = torch.tensor([[2, 2],
+                  [3, 3]])
+
+print(a @ b)
+```
+
 ### Introducción a los tensores de PyTorch
 
 Los Tensores son la estructura de datos central de PyTorch y la base de aprendizaje profundo. Son similares a las matrices Numpy, pero tienen características únicas.
