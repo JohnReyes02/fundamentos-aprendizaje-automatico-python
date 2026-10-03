@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Afinar tu modelo – Fundamentos del aprendizaje automático en python</title>
+<title>Introducción a PyTorch, una biblioteca de aprendizaje profundo – Fundamentos del aprendizaje automático en python</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +65,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../01_Aprendizaje_supervisado_con_scikitlearn/04_Preprocesamiento_y_canalizaciones.html" rel="next">
-<link href="../01_Aprendizaje_supervisado_con_scikitlearn/02_Regresion.html" rel="prev">
+<link href="../03_Introduccion_al_aprendizaje_profundo_con_pytorch/02_Hiperparametros_y_arquitectura_de_rn.html" rel="next">
+<link href="../03_Introduccion_al_aprendizaje_profundo_con_pytorch/index.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -249,7 +284,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../01_Aprendizaje_supervisado_con_scikitlearn/index.html">Aprendizaje supervisado con scikit-learn</a></li><li class="breadcrumb-item"><a href="../01_Aprendizaje_supervisado_con_scikitlearn/03_Afinar_tu_modelo.html"><span class="chapter-title">Afinar tu modelo</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../03_Introduccion_al_aprendizaje_profundo_con_pytorch/index.html">Introducción al aprendizaje profundo con PyTorch</a></li><li class="breadcrumb-item"><a href="../03_Introduccion_al_aprendizaje_profundo_con_pytorch/01_Introduccion_a_pytorch.html"><span class="chapter-title">Introducción a PyTorch, una biblioteca de aprendizaje profundo</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -309,13 +344,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
  <span class="menu-text">Aprendizaje supervisado con scikit-learn</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../01_Aprendizaje_supervisado_con_scikitlearn/index.html" class="sidebar-item-text sidebar-link">
@@ -334,7 +369,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../01_Aprendizaje_supervisado_con_scikitlearn/03_Afinar_tu_modelo.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Afinar tu modelo</span></a>
+  <a href="../01_Aprendizaje_supervisado_con_scikitlearn/03_Afinar_tu_modelo.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Afinar tu modelo</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -362,13 +397,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Introducción al aprendizaje profundo con PyTorch</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../03_Introduccion_al_aprendizaje_profundo_con_pytorch/index.html" class="sidebar-item-text sidebar-link">
@@ -377,7 +412,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../03_Introduccion_al_aprendizaje_profundo_con_pytorch/01_Introduccion_a_pytorch.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introducción a PyTorch, una biblioteca de aprendizaje profundo</span></a>
+  <a href="../03_Introduccion_al_aprendizaje_profundo_con_pytorch/01_Introduccion_a_pytorch.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Introducción a PyTorch, una biblioteca de aprendizaje profundo</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -418,16 +453,37 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contenido</h2>
+   
+  <ul>
+  <li><a href="#introducción-al-aprendizaje-profundo-con-pytorch" id="toc-introducción-al-aprendizaje-profundo-con-pytorch" class="nav-link active" data-scroll-target="#introducción-al-aprendizaje-profundo-con-pytorch">Introducción al aprendizaje profundo con PyTorch</a>
+  <ul class="collapse">
+  <li><a href="#introducción-a-los-tensores-de-pytorch" id="toc-introducción-a-los-tensores-de-pytorch" class="nav-link" data-scroll-target="#introducción-a-los-tensores-de-pytorch">Introducción a los tensores de PyTorch</a></li>
+  <li><a href="#comprobar-y-sumar-tensores" id="toc-comprobar-y-sumar-tensores" class="nav-link" data-scroll-target="#comprobar-y-sumar-tensores">Comprobar y sumar tensores</a></li>
+  </ul></li>
+  <li><a href="#redes-neuronales-y-capas" id="toc-redes-neuronales-y-capas" class="nav-link" data-scroll-target="#redes-neuronales-y-capas">Redes neuronales y capas</a>
+  <ul class="collapse">
+  <li><a href="#red-de-capas-lineales" id="toc-red-de-capas-lineales" class="nav-link" data-scroll-target="#red-de-capas-lineales">Red de capas lineales</a></li>
+  <li><a href="#comprender-los-pesos" id="toc-comprender-los-pesos" class="nav-link" data-scroll-target="#comprender-los-pesos">Comprender los pesos</a></li>
+  </ul></li>
+  <li><a href="#capas-y-parámetros-ocultos" id="toc-capas-y-parámetros-ocultos" class="nav-link" data-scroll-target="#capas-y-parámetros-ocultos">Capas y parámetros ocultos</a>
+  <ul class="collapse">
+  <li><a href="#tu-perimera-red-neuronal" id="toc-tu-perimera-red-neuronal" class="nav-link" data-scroll-target="#tu-perimera-red-neuronal">Tu perimera red neuronal</a></li>
+  <li><a href="#apilar-capas-lineales" id="toc-apilar-capas-lineales" class="nav-link" data-scroll-target="#apilar-capas-lineales">Apilar capas lineales</a></li>
+  <li><a href="#contar-el-número-de-parámetros" id="toc-contar-el-número-de-parámetros" class="nav-link" data-scroll-target="#contar-el-número-de-parámetros">Contar el número de parámetros</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/JohnReyes02/fundamentos-aprendizaje-automatico-python/edit/main/03_Introduccion_al_aprendizaje_profundo_con_pytorch/01_Introduccion_a_pytorch.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/JohnReyes02/fundamentos-aprendizaje-automatico-python/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li><li><a href="https://github.com/JohnReyes02/fundamentos-aprendizaje-automatico-python/blob/main/03_Introduccion_al_aprendizaje_profundo_con_pytorch/01_Introduccion_a_pytorch.qmd" class="toc-action"><i class="bi empty"></i>Ver el código</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../01_Aprendizaje_supervisado_con_scikitlearn/index.html">Aprendizaje supervisado con scikit-learn</a></li><li class="breadcrumb-item"><a href="../01_Aprendizaje_supervisado_con_scikitlearn/03_Afinar_tu_modelo.html"><span class="chapter-title">Afinar tu modelo</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../03_Introduccion_al_aprendizaje_profundo_con_pytorch/index.html">Introducción al aprendizaje profundo con PyTorch</a></li><li class="breadcrumb-item"><a href="../03_Introduccion_al_aprendizaje_profundo_con_pytorch/01_Introduccion_a_pytorch.html"><span class="chapter-title">Introducción a PyTorch, una biblioteca de aprendizaje profundo</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Afinar tu modelo</span></h1>
+<h1 class="title"><span class="chapter-title">Introducción a PyTorch, una biblioteca de aprendizaje profundo</span></h1>
 </div>
 
 
@@ -444,8 +500,108 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>Vehículos autónomos, smartphones, motores de búsqueda… El aprendizaje profundo está ahora en todas partes. Antes de empezar a crear modelos complejos, te familizarizarás con PyTorch, un marco de aprendizaje profundo. Aprenderás a manipular tensores, crear estructuras de datos de PyTorch y construir tu primera red neuronal en PyTorch con capas lineales.</p>
+<section id="introducción-al-aprendizaje-profundo-con-pytorch" class="level2">
+<h2 class="anchored" data-anchor-id="introducción-al-aprendizaje-profundo-con-pytorch">Introducción al aprendizaje profundo con PyTorch</h2>
+<section id="introducción-a-los-tensores-de-pytorch" class="level3">
+<h3 class="anchored" data-anchor-id="introducción-a-los-tensores-de-pytorch">Introducción a los tensores de PyTorch</h3>
+<p>Los Tensores son la estructura de datos central de PyTorch y la base de aprendizaje profundo. Son similares a las matrices Numpy, pero tienen características únicas.</p>
+<p>Aquí tienes una lista Python llamada <code>temperatures</code> que contiene lecturas diarias de dos estaciones metereológicass. ¡Intenta convertir esto en un tensor!</p>
+<section id="instucciones" class="level4">
+<h4 class="anchored" data-anchor-id="instucciones">Instucciones</h4>
+<ul>
+<li><p>Comienza importando <code>torch</code>.</p></li>
+<li><p>Crea un tensor a partir de la lista Python <code>temperatures</code>.</p></li>
+</ul>
+<div id="21c620d0" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import PyTorch</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>temperatures <span class="op">=</span> [[<span class="dv">72</span>, <span class="dv">75</span>, <span class="dv">78</span>], [<span class="dv">70</span>, <span class="dv">73</span>, <span class="dv">76</span>]]</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a tensor from temperatures</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>temp_tensor <span class="op">=</span> torch.tensor(temperatures)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(temp_tensor)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>tensor([[72, 75, 78],
+        [70, 73, 76]])</code></pre>
+</div>
+</div>
+<p>Se ha creado con éxito un tensor usando datos de temperatura. ¡Este es tu primer paso hacia la construcción de la primear red neuronal!</p>
+</section>
+</section>
+<section id="comprobar-y-sumar-tensores" class="level3">
+<h3 class="anchored" data-anchor-id="comprobar-y-sumar-tensores">Comprobar y sumar tensores</h3>
+<p>Mientras recoges los datos de temperatura, observas que las lecturas tienen una desviación de dos grados. Añade dos grados al tensor <code>temperatures</code> después de verificar su forma y tipo de datos con <code>torch</code> para garantizar la compatabilidad con el tensor <code>adjustment</code>.</p>
+<section id="instucciones-1" class="level4">
+<h4 class="anchored" data-anchor-id="instucciones-1">Instucciones</h4>
+<ol type="1">
+<li></li>
+</ol>
+<ul>
+<li><p>Visualiza la forma del tensor <code>adjustment</code>.</p></li>
+<li><p>Muestra el tipo de datos del tensor <code>adjustment</code>.</p></li>
+</ul>
+<div id="bf7a9b57" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>adjustment <span class="op">=</span> torch.tensor([[<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>], [<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>]])</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the shape of the adjustment tensor</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Adjustment shape:"</span>, adjustment.shape)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the type of the adjustment tensor</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Adjustment type:"</span>, adjustment.dtype)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Tempeartures shape:"</span>, temp_tensor.shape)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Tempeartures shape:"</span>, temp_tensor.dtype)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Adjustment shape: torch.Size([2, 3])
+Adjustment type: torch.int64
+Tempeartures shape: torch.Size([2, 3])
+Tempeartures shape: torch.int64</code></pre>
+</div>
+</div>
+<ol start="2" type="1">
+<li></li>
+</ol>
+<ul>
+<li>Suma los tensores <code>temperatures</code> y <code>adjustment</code></li>
+</ul>
+<div id="ec369fcb" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add the temperatures and adjustment tensors</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>corrected_temperatures <span class="op">=</span> temp_tensor <span class="op">+</span> adjustment</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Corrected temperatures:"</span>, corrected_temperatures)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Corrected temperatures: tensor([[74, 77, 80],
+        [72, 75, 78]])</code></pre>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="redes-neuronales-y-capas" class="level2">
+<h2 class="anchored" data-anchor-id="redes-neuronales-y-capas">Redes neuronales y capas</h2>
+<section id="red-de-capas-lineales" class="level3">
+<h3 class="anchored" data-anchor-id="red-de-capas-lineales">Red de capas lineales</h3>
+</section>
+<section id="comprender-los-pesos" class="level3">
+<h3 class="anchored" data-anchor-id="comprender-los-pesos">Comprender los pesos</h3>
+</section>
+</section>
+<section id="capas-y-parámetros-ocultos" class="level2">
+<h2 class="anchored" data-anchor-id="capas-y-parámetros-ocultos">Capas y parámetros ocultos</h2>
+<section id="tu-perimera-red-neuronal" class="level3">
+<h3 class="anchored" data-anchor-id="tu-perimera-red-neuronal">Tu perimera red neuronal</h3>
+</section>
+<section id="apilar-capas-lineales" class="level3">
+<h3 class="anchored" data-anchor-id="apilar-capas-lineales">Apilar capas lineales</h3>
+</section>
+<section id="contar-el-número-de-parámetros" class="level3">
+<h3 class="anchored" data-anchor-id="contar-el-número-de-parámetros">Contar el número de parámetros</h3>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -863,13 +1019,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../01_Aprendizaje_supervisado_con_scikitlearn/02_Regresion.html" class="pagination-link" aria-label="Regresión">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Regresión</span></span>
+      <a href="../03_Introduccion_al_aprendizaje_profundo_con_pytorch/index.html" class="pagination-link" aria-label="Bienvenida">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Bienvenida</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../01_Aprendizaje_supervisado_con_scikitlearn/04_Preprocesamiento_y_canalizaciones.html" class="pagination-link" aria-label="Preprocesamiento y canalizaciones">
-        <span class="nav-page-text"><span class="chapter-title">Preprocesamiento y canalizaciones</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../03_Introduccion_al_aprendizaje_profundo_con_pytorch/02_Hiperparametros_y_arquitectura_de_rn.html" class="pagination-link" aria-label="02_Hiperparametros_y_arquitectura_de_rn.html">
+        <span class="nav-page-text"><span class="chapter-title">02_Hiperparametros_y_arquitectura_de_rn.html</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -878,4 +1034,4 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/JohnReyes02/fundamentos-aprendizaje-automatico-python/edit/main/01_Aprendizaje_supervisado_con_scikitlearn/03_Afinar_tu_modelo.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/JohnReyes02/fundamentos-aprendizaje-automatico-python/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li><li><a href="https://github.com/JohnReyes02/fundamentos-aprendizaje-automatico-python/blob/main/01_Aprendizaje_supervisado_con_scikitlearn/03_Afinar_tu_modelo.qmd" class="toc-action"><i class="bi empty"></i>Ver el código</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/JohnReyes02/fundamentos-aprendizaje-automatico-python/edit/main/03_Introduccion_al_aprendizaje_profundo_con_pytorch/01_Introduccion_a_pytorch.qmd" class="toc-action"><i class="bi bi-github"></i>Editar esta página</a></li><li><a href="https://github.com/JohnReyes02/fundamentos-aprendizaje-automatico-python/issues/new" class="toc-action"><i class="bi empty"></i>Informar sobre problema</a></li><li><a href="https://github.com/JohnReyes02/fundamentos-aprendizaje-automatico-python/blob/main/03_Introduccion_al_aprendizaje_profundo_con_pytorch/01_Introduccion_a_pytorch.qmd" class="toc-action"><i class="bi empty"></i>Ver el código</a></li></ul></div></div></div></footer></body></html>

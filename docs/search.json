@@ -107,13 +107,22 @@
     ]
   },
   {
-<<<<<<< HEAD
-=======
-    "objectID": "01_Aprendizaje_supervisado_con_scikitlearn/02_Regresion.html#intruducción-a-la-regresión",
-    "href": "01_Aprendizaje_supervisado_con_scikitlearn/02_Regresion.html#intruducción-a-la-regresión",
+    "objectID": "01_Aprendizaje_supervisado_con_scikitlearn/02_Regresion.html#introducción-a-la-regresión",
+    "href": "01_Aprendizaje_supervisado_con_scikitlearn/02_Regresion.html#introducción-a-la-regresión",
     "title": "Regresión",
     "section": "",
-    "text": "Crear características\n\n\nConstruye un modelo de regresión lineal\n\n\nVisualizar un modelo de regresión lineal",
+    "text": "Predicción de niveles de glucosa\n\n\n\nCreación de matrices de características y objetivos\n\n\n\nPredicciones a partir de una única característica\n\n\n\n\nRepresentación gráfica de la glucosa frente al índice de masa corporal\n\n\n\nAjuste de un modelo de regresión\n\n\n\nCrear características\nEn este capítulo, trabajarás con un conjunto de datos llamado sales_df, que contine información sobre el gasto en camapañas publicitarias en distintos tipos de medios y el número de dólares generados en ventas por la campaña respectiva. Aquí tienes las dos primeras filas:\n\n\n\n\n\n\n\n\n\ntv\nradio\nsocial_media\nsales\n\n\n\n\n0\n16000.0\n6566.23\n2907.98\n54732.76\n\n\n1\n13000.0\n9237.76\n2409.57\n46677.90\n\n\n\n\n\n\n\nUtilizarás los gastos de publicidad como características para predecir los valores de las ventas, trabajando inicialmente con la columna \"radio\". Sin embargo, antes de hacer ninguna predicción, tendrás que crear la matriz de características y objetivos, dándoles el formato correcto para scikit-learn.\n\nInstrucciones\n\nCrea X, una matriz con los valores de la columna \"radio\" del DataFrame sales_df.\nCrea y, una matriz con los valores de la columna \"sales\" del DataFrame sales_df.\nRemodela X en una matriz Numpy bidimensional.\nImprime la forma de X y y.\n\n\nimport numpy as np\n\n# Create X from de radio column's values\nX = sales_df['radio'].values\n\n# Create y from de sales column's values\ny = sales_df['sales'].values\n\n# Reshape X\nX = X.reshape(-1, 1)\n\n# Check the shape of the features and targets\nprint(X.shape, y.shape)\n\n(4546, 1) (4546,)\n\n\n\n\n\nConstruye un modelo de regresión lineal\nAhora que has creado tus matrices de características y objetivos, entrenaras un modelo de regresión lineal en todos los valores de características y objetivos.\nComo el objetivo es evaluar la relación entre la característica y los valores objetivo, no es necesario dividir los datos en conjuntos de entrenamiento y prueba.\nX y y se han precargado de la siguiente manera\n\ny = sales_df['sales'].values\nX = sales_df['radio'].values.reshape(-1, 1) \n\n\nInstrucciones\n\nImporta LinearRegression.\nInstancia un modelo de regresión lineal.\nPredice los valores de venta utilizando X, almacenando como predictions.\n\n\n# Import LinearRegression\nfrom sklearn.linear_model import LinearRegression\n\n# Create the model\nreg = LinearRegression()\n\n# Fit the model to the data\nreg.fit(X, y)\n\n# Make predictions\npredictions = reg.predict(X)\n\nprint(predictions[:5])\n\n[ 95491.17119147 117829.51038393 173423.38071499 291603.11444202\n 111137.28167129]\n\n\nSe observa cómo los valores de la ventas para las primeras cinco predcciones varían de $95.000 a mas de $290.000.\n\n\n\nVisualizar un modelo de regresión lineal\nAhora que has construído el modelo de regresión lineal y lo has entrenado utilizando todas las observaciones disponibles, puedes visualizar lo bien que se ajusta el modelo a los datos. Esto te permite interpretar la relación entre el gasto en publicidad de radio y los valores de sales.\n\nInstrucciones\n\nImporta matplotlib.pyplot como plt.\nCrea un gráfico de dispersión visualizando y frente a X, con las observaciones en azul.\nVisualiza el gráfico.\n\n\n# Import matplotlib.pyplot\nimport matplotlib.pyplot as plt\n\n# Create a scatter plot\nplt.scatter(X, y, color='blue')\n\n# Create line plot\nplt.plot(X, predictions, color='red')\nplt.xlabel('Radio Expenditure ($)')\nplt.ylabel('Sales ($)')\n\n# Display the plot\nplt.show()\n\n\n\n\n\n\n\n\n¡El modelo captura muy bien una correlación lineal casi perfecta entre el gasto en publicidad en radio y las ventas!",
+    "crumbs": [
+      "Aprendizaje supervisado con scikit-learn",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Regresión</span>"
+    ]
+  },
+  {
+    "objectID": "01_Aprendizaje_supervisado_con_scikitlearn/02_Regresion.html#conceptos-básicos-de-la-regresión-lineal",
+    "href": "01_Aprendizaje_supervisado_con_scikitlearn/02_Regresion.html#conceptos-básicos-de-la-regresión-lineal",
+    "title": "Regresión",
+    "section": "Conceptos básicos de la regresión lineal",
+    "text": "Conceptos básicos de la regresión lineal\n\nMecánica de regresión\n\n\\[ y = ax + b \\]\n\nLa regresión lineal simple utiliza una característica\n\ny = objetivo\nx = una característica\na, b =. parámetros/coeficientes del modelo - pendiente, intercepto.\n\n\n¿Cómo elegimos a y b?\n\nSe define una función de error para cualquier línea dada\nSe elige la línea que minimice la función de error\n\nFunción de error = función de pérdida = función de coste\n\nFunción de pérdida\n\nMínimos cuadrados ordinarios\n\n\n\\[\nRSS = \\sum_{i=1}^n (y_i - \\hat{y}_i)^2\n\\]",
     "crumbs": [
       "Aprendizaje supervisado con scikit-learn",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Regresión</span>"
@@ -131,25 +140,6 @@
     ]
   },
   {
->>>>>>> ba344a8 (update regression)
-    "objectID": "01_Aprendizaje_supervisado_con_scikitlearn/02_Regresion.html#introducción-a-la-regresión",
-    "href": "01_Aprendizaje_supervisado_con_scikitlearn/02_Regresion.html#introducción-a-la-regresión",
-    "title": "Regresión",
-    "section": "",
-    "text": "Predicción de niveles de glucosa\n\n\n\nCreación de matrices de características y objetivos\n\n\n\nPredicciones a partir de una única característica\n\n\n\n\nRepresentación gráfica de la glucosa frente al índice de masa corporal\n\n\n\nAjuste de un modelo de regresión\n\n\n\nCrear características\nEn este capítulo, trabajarás con un conjunto de datos llamado sales_df, que contine información sobre el gasto en camapañas publicitarias en distintos tipos de medios y el número de dólares generados en ventas por la campaña respectiva. Aquí tienes las dos primeras filas:\n\n\n\n\n\n\n\n\n\ntv\nradio\nsocial_media\nsales\n\n\n\n\n0\n16000.0\n6566.23\n2907.98\n54732.76\n\n\n1\n13000.0\n9237.76\n2409.57\n46677.90\n\n\n\n\n\n\n\nUtilizarás los gastos de publicidad como características para predecir los valores de las ventas, trabajando inicialmente con la columna \"radio\". Sin embargo, antes de hacer ninguna predicción, tendrás que crear la matriz de características y objetivos, dándoles el formato correcto para scikit-learn.\n\nInstrucciones\n\nCrea X, una matriz con los valores de la columna \"radio\" del DataFrame sales_df.\nCrea y, una matriz con los valores de la columna \"sales\" del DataFrame sales_df.\nRemodela X en una matriz Numpy bidimensional.\nImprime la forma de X y y.\n\n\nimport numpy as np\n\n# Create X from de radio column's values\nX = sales_df['radio'].values\n\n# Create y from de sales column's values\ny = sales_df['sales'].values\n\n# Reshape X\nX = X.reshape(-1, 1)\n\n# Check the shape of the features and targets\nprint(X.shape, y.shape)\n\n(4546, 1) (4546,)\n\n\n\n\n\nConstruye un modelo de regresión lineal\nAhora que has creado tus matrices de características y objetivos, entrenaras un modelo de regresión lineal en todos los valores de características y objetivos.\nComo el objetivo es evaluar la relación entre la característica y los valores objetivo, no es necesario dividir los datos en conjuntos de entrenamiento y prueba.\nX y y se han precargado de la siguiente manera\n\ny = sales_df['sales'].values\nX = sales_df['radio'].values.reshape(-1, 1) \n\n\nInstrucciones\n\nImporta LinearRegression.\nInstancia un modelo de regresión lineal.\nPredice los valores de venta utilizando X, almacenando como predictions.\n\n\n# Import LinearRegression\nfrom sklearn.linear_model import LinearRegression\n\n# Create the model\nreg = LinearRegression()\n\n# Fit the model to the data\nreg.fit(X, y)\n\n# Make predictions\npredictions = reg.predict(X)\n\nprint(predictions[:5])\n\n[ 95491.17119147 117829.51038393 173423.38071499 291603.11444202\n 111137.28167129]\n\n\nSe observa cómo los valores de la ventas para las primeras cinco predcciones varían de $95.000 a mas de $290.000.\n\n\n\nVisualizar un modelo de regresión lineal\nAhora que has construído el modelo de regresión lineal y lo has entrenado utilizando todas las observaciones disponibles, puedes visualizar lo bien que se ajusta el modelo a los datos. Esto te permite interpretar la relación entre el gasto en publicidad de radio y los valores de sales.\n\nInstrucciones\n\nImporta matplotlib.pyplot como plt.\nCrea un gráfico de dispersión visualizando y frente a X, con las observaciones en azul.\nVisualiza el gráfico.\n\n\n# Import matplotlib.pyplot\nimport matplotlib.pyplot as plt\n\n# Create a scatter plot\nplt.scatter(X, y, color='blue')\n\n# Create line plot\nplt.plot(X, predictions, color='red')\nplt.xlabel('Radio Expenditure ($)')\nplt.ylabel('Sales ($)')\n\n# Display the plot\nplt.show()\n\n\n\n\n\n\n\n\n¡El modelo captura muy bien una correlación lineal casi perfecta entre el gasto en publicidad en radio y las ventas!",
-    "crumbs": [
-      "Aprendizaje supervisado con scikit-learn",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Regresión</span>"
-    ]
-  },
-  {
-<<<<<<< HEAD
-    "objectID": "01_Aprendizaje_supervisado_con_scikitlearn/02_Regresion.html#conceptos-básicos-de-la-regresión-lineal",
-    "href": "01_Aprendizaje_supervisado_con_scikitlearn/02_Regresion.html#conceptos-básicos-de-la-regresión-lineal",
-    "title": "Regresión",
-    "section": "Conceptos básicos de la regresión lineal",
-    "text": "Conceptos básicos de la regresión lineal\n\nMecánica de regresión\n\n\\[ y = ax + b \\]\n\nLa regresión lineal simple utiliza una característica\n\ny = objetivo\nx = una característica\na, b =. parámetros/coeficientes del modelo - pendiente, intercepto.\n\n\n¿Cómo elegimos a y b?\n\nSe define una función de error para cualquier línea dada\nSe elige la línea que minimice la función de error\n\nFunción de error = función de pérdida = función de coste\n\nFunción de pérdida\n\nMínimos cuadrados ordinarios\n\n\n\\[\nRSS = \\sum_{i=1}^n (y_i - \\hat{y}_i)^2\n\\]",
-=======
     "objectID": "01_Aprendizaje_supervisado_con_scikitlearn/02_Regresion.html#validación-cruzada",
     "href": "01_Aprendizaje_supervisado_con_scikitlearn/02_Regresion.html#validación-cruzada",
     "title": "Regresión",
@@ -166,10 +156,75 @@
     "title": "Regresión",
     "section": "Regresión regularizada",
     "text": "Regresión regularizada\n\nRegulación regularizada: cresta\n\n\nRegresión Lasso para la importancia de las características",
->>>>>>> ba344a8 (update regression)
     "crumbs": [
       "Aprendizaje supervisado con scikit-learn",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Regresión</span>"
+    ]
+  },
+  {
+    "objectID": "03_Introduccion_al_aprendizaje_profundo_con_pytorch/index.html",
+    "href": "03_Introduccion_al_aprendizaje_profundo_con_pytorch/index.html",
+    "title": "Bienvenida",
+    "section": "",
+    "text": "Descripción\n📊 Nivel: Intermedio\n🕒 Duración estimada: 4 horas\n🎥 Incluye código, visualizaciones y ejercicios\nEl aprendizaje profundo está en todas partes, desde las cámaras de los smartphones hasta los asistentes de voz o los vehículos autónomos. En este curso, descubrirás esta potente tecnología y aprenderás a aprovecharla con PyTorch, una de las bibliotecas de aprendizaje profundo más populares. Al final de este curso, serás capaz de aprovechar PyTorch para resolver problemas de clasificación y regresión utilizando el aprendizaje profundo.",
+    "crumbs": [
+      "Introducción al aprendizaje profundo con PyTorch",
+      "Bienvenida"
+    ]
+  },
+  {
+    "objectID": "03_Introduccion_al_aprendizaje_profundo_con_pytorch/index.html#módulos-del-curso",
+    "href": "03_Introduccion_al_aprendizaje_profundo_con_pytorch/index.html#módulos-del-curso",
+    "title": "Bienvenida",
+    "section": "Módulos del curso",
+    "text": "Módulos del curso\n\nIntroducción a PyTorch, una biblioteca de aprendizaje profundo\nHiperparámetros y arquitectura de redes neuronales\nEntrenar una red neuronal con PyTorch\nEvaluación y mejora de los modelos",
+    "crumbs": [
+      "Introducción al aprendizaje profundo con PyTorch",
+      "Bienvenida"
+    ]
+  },
+  {
+    "objectID": "03_Introduccion_al_aprendizaje_profundo_con_pytorch/01_Introduccion_a_pytorch.html",
+    "href": "03_Introduccion_al_aprendizaje_profundo_con_pytorch/01_Introduccion_a_pytorch.html",
+    "title": "Introducción a PyTorch, una biblioteca de aprendizaje profundo",
+    "section": "",
+    "text": "Introducción al aprendizaje profundo con PyTorch\nVehículos autónomos, smartphones, motores de búsqueda… El aprendizaje profundo está ahora en todas partes. Antes de empezar a crear modelos complejos, te familizarizarás con PyTorch, un marco de aprendizaje profundo. Aprenderás a manipular tensores, crear estructuras de datos de PyTorch y construir tu primera red neuronal en PyTorch con capas lineales.",
+    "crumbs": [
+      "Introducción al aprendizaje profundo con PyTorch",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Introducción a PyTorch, una biblioteca de aprendizaje profundo</span>"
+    ]
+  },
+  {
+    "objectID": "03_Introduccion_al_aprendizaje_profundo_con_pytorch/01_Introduccion_a_pytorch.html#introducción-al-aprendizaje-profundo-con-pytorch",
+    "href": "03_Introduccion_al_aprendizaje_profundo_con_pytorch/01_Introduccion_a_pytorch.html#introducción-al-aprendizaje-profundo-con-pytorch",
+    "title": "Introducción a PyTorch, una biblioteca de aprendizaje profundo",
+    "section": "",
+    "text": "Introducción a los tensores de PyTorch\nLos Tensores son la estructura de datos central de PyTorch y la base de aprendizaje profundo. Son similares a las matrices Numpy, pero tienen características únicas.\nAquí tienes una lista Python llamada temperatures que contiene lecturas diarias de dos estaciones metereológicass. ¡Intenta convertir esto en un tensor!\n\nInstucciones\n\nComienza importando torch.\nCrea un tensor a partir de la lista Python temperatures.\n\n\n# Import PyTorch\nimport torch\n\ntemperatures = [[72, 75, 78], [70, 73, 76]]\n\n# Create a tensor from temperatures\ntemp_tensor = torch.tensor(temperatures)\n\nprint(temp_tensor)\n\ntensor([[72, 75, 78],\n        [70, 73, 76]])\n\n\nSe ha creado con éxito un tensor usando datos de temperatura. ¡Este es tu primer paso hacia la construcción de la primear red neuronal!\n\n\n\nComprobar y sumar tensores\nMientras recoges los datos de temperatura, observas que las lecturas tienen una desviación de dos grados. Añade dos grados al tensor temperatures después de verificar su forma y tipo de datos con torch para garantizar la compatabilidad con el tensor adjustment.\n\nInstucciones\n\n\n\n\nVisualiza la forma del tensor adjustment.\nMuestra el tipo de datos del tensor adjustment.\n\n\nadjustment = torch.tensor([[2, 2, 2], [2, 2, 2]])\n\n# Display the shape of the adjustment tensor\nprint(\"Adjustment shape:\", adjustment.shape)\n\n# Display the type of the adjustment tensor\nprint(\"Adjustment type:\", adjustment.dtype)\n\nprint(\"Tempeartures shape:\", temp_tensor.shape)\nprint(\"Tempeartures shape:\", temp_tensor.dtype)\n\nAdjustment shape: torch.Size([2, 3])\nAdjustment type: torch.int64\nTempeartures shape: torch.Size([2, 3])\nTempeartures shape: torch.int64\n\n\n\n\n\n\nSuma los tensores temperatures y adjustment\n\n\n# Add the temperatures and adjustment tensors\ncorrected_temperatures = temp_tensor + adjustment\nprint(\"Corrected temperatures:\", corrected_temperatures)\n\nCorrected temperatures: tensor([[74, 77, 80],\n        [72, 75, 78]])",
+    "crumbs": [
+      "Introducción al aprendizaje profundo con PyTorch",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Introducción a PyTorch, una biblioteca de aprendizaje profundo</span>"
+    ]
+  },
+  {
+    "objectID": "03_Introduccion_al_aprendizaje_profundo_con_pytorch/01_Introduccion_a_pytorch.html#redes-neuronales-y-capas",
+    "href": "03_Introduccion_al_aprendizaje_profundo_con_pytorch/01_Introduccion_a_pytorch.html#redes-neuronales-y-capas",
+    "title": "Introducción a PyTorch, una biblioteca de aprendizaje profundo",
+    "section": "Redes neuronales y capas",
+    "text": "Redes neuronales y capas\n\nRed de capas lineales\n\n\nComprender los pesos",
+    "crumbs": [
+      "Introducción al aprendizaje profundo con PyTorch",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Introducción a PyTorch, una biblioteca de aprendizaje profundo</span>"
+    ]
+  },
+  {
+    "objectID": "03_Introduccion_al_aprendizaje_profundo_con_pytorch/01_Introduccion_a_pytorch.html#capas-y-parámetros-ocultos",
+    "href": "03_Introduccion_al_aprendizaje_profundo_con_pytorch/01_Introduccion_a_pytorch.html#capas-y-parámetros-ocultos",
+    "title": "Introducción a PyTorch, una biblioteca de aprendizaje profundo",
+    "section": "Capas y parámetros ocultos",
+    "text": "Capas y parámetros ocultos\n\nTu perimera red neuronal\n\n\nApilar capas lineales\n\n\nContar el número de parámetros",
+    "crumbs": [
+      "Introducción al aprendizaje profundo con PyTorch",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Introducción a PyTorch, una biblioteca de aprendizaje profundo</span>"
     ]
   }
 ]
